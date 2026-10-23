@@ -72,7 +72,7 @@ export function DunesParksBeach() {
   return (
     <div className="border-t border-(--dn-rule)">
       <div
-        className={`${container} grid grid-cols-1 gap-16 py-16 lg:grid-cols-12 lg:gap-10 lg:py-24`}
+        className={`${container} grid grid-cols-1 gap-14 py-14 sm:gap-16 sm:py-16 lg:grid-cols-12 lg:gap-10 lg:py-24`}
       >
         <section
           id="beach"
@@ -149,7 +149,7 @@ export function DunesParksBeach() {
         <section
           id="ferry"
           aria-labelledby="dn-parks-ferry"
-          className="min-w-0 scroll-mt-56 self-start border-t border-(--dn-ink) pt-8 lg:col-span-4 lg:border-t-0 lg:border-l lg:border-(--dn-rule) lg:pt-0 lg:pl-10"
+          className="min-w-0 scroll-mt-56 self-start border-t border-(--dn-ink) pt-8 lg:sticky lg:top-56 lg:col-span-4 lg:border-t-0 lg:border-l lg:border-(--dn-rule) lg:pt-0 lg:pl-10"
         >
           <p className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-terra) uppercase">
             The ferry · Across the river

@@ -32,7 +32,10 @@ export function VillageFindAPark() {
             {parkAreas.map((area, index) => {
               const count = parksInArea(area.id).length
               return (
-                <li key={area.id} className={jumpItem(index, parkAreas.length)}>
+                <li
+                  key={area.id}
+                  className={jumpItem(index, parkAreas.length, "last")}
+                >
                   <PillLink
                     href={`#${areaAnchor(area.id)}`}
                     tone={index === 0 ? "primary" : "secondary"}

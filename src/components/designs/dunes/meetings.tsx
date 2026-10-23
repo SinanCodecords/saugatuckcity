@@ -54,7 +54,7 @@ export function DunesMeetings() {
               >
                 <Link
                   href="#"
-                  className="group flex h-full flex-col rounded-sm py-7 sm:py-8 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-cream-on-dark) lg:pt-10 lg:pb-4"
+                  className="group flex h-full flex-col rounded-sm py-7 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-cream-on-dark) sm:py-8 lg:pt-10 lg:pb-4"
                 >
                   <time
                     dateTime={meeting.date}
@@ -69,7 +69,7 @@ export function DunesMeetings() {
                     </span>
                   </time>
 
-                  <h3 className="mt-5 font-(family-name:--font-dunes-serif) sm:mt-7 text-[22px] leading-snug text-(--dn-cream-on-dark) transition-colors group-hover:text-(--dn-muted-on-dark)">
+                  <h3 className="mt-5 font-(family-name:--font-dunes-serif) text-[22px] leading-snug text-(--dn-cream-on-dark) transition-colors group-hover:text-(--dn-muted-on-dark) sm:mt-7">
                     {meeting.title}
                   </h3>
 

@@ -154,16 +154,25 @@ export const departments = [
   "Fire Department",
 ] as const
 
+/**
+ * Placeholder photography. `downtown`, `lake` and `marina` are Unsplash photos
+ * tagged Saugatuck; swap all of these for the City's own once supplied.
+ */
 export const heroImages = {
+  /** Sailboat on open water. */
   harbor:
     "https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=2400&q=80",
+  /** Sunset over the lake. */
   dunes:
     "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=2400&q=80",
+  /** Ice cream shop sign on a clapboard wall. */
   downtown:
-    "https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&w=2400&q=80",
-  lake: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80",
+    "https://images.unsplash.com/photo-1519677704001-6d410c3ef07e?auto=format&fit=crop&w=2400&q=80",
+  /** Beachgoers on the Lake Michigan shore below grassy dunes. */
+  lake: "https://images.unsplash.com/photo-1773157742077-54427eefd3c7?auto=format&fit=crop&w=2400&q=80",
+  /** The harbor and marina seen from above, framed by trees. */
   marina:
-    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2400&q=80",
+    "https://images.unsplash.com/photo-1788090263763-853d636de2fc?auto=format&fit=crop&w=2400&q=80",
 } as const
 
 export const alert = {

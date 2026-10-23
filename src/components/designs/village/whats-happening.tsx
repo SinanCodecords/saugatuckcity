@@ -117,7 +117,9 @@ export function VillageHappening() {
                       />
                     </div>
                     <div className="flex flex-1 flex-col p-5">
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+                      {/* Category and date stack, so a long category never
+                          leaves a dangling separator when the card is narrow. */}
+                      <div className="flex flex-col gap-0.5 text-xs">
                         <span
                           className={cn(
                             heading,
@@ -125,9 +127,6 @@ export function VillageHappening() {
                           )}
                         >
                           {item.category}
-                        </span>
-                        <span aria-hidden="true" className="text-(--v-muted)">
-                          &middot;
                         </span>
                         <time dateTime={item.date} className="text-(--v-muted)">
                           {formatDate(item.date)}

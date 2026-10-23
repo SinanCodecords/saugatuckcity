@@ -16,7 +16,7 @@ export function Hero() {
       <div className="relative h-[300px] w-full sm:h-[360px]">
         <Image
           src={heroImages.lake}
-          alt="Lake Michigan shoreline near Saugatuck on a clear summer day"
+          alt="Beachgoers on the Lake Michigan shore below grassy dunes near Saugatuck"
           fill
           priority
           sizes="100vw"

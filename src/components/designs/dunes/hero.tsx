@@ -66,12 +66,12 @@ export function DunesHero() {
                 src={heroImages.dunes}
                 alt="Grass-topped sand dunes above Lake Michigan near Saugatuck under a soft sky"
                 fill
-                priority
+                preload
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
               />
             </div>
-            <figcaption className="mt-3 flex items-baseline justify-between text-[11px] tracking-[0.14em] text-(--dn-ink-soft) uppercase">
+            <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-[11px] tracking-[0.14em] text-(--dn-ink-soft) uppercase">
               <span>Mount Baldhead dunes</span>
               <span>Autumn, 2026</span>
             </figcaption>

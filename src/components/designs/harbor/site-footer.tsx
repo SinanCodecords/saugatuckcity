@@ -45,7 +45,7 @@ export function SiteFooter() {
                 </span>
               </p>
             </div>
-            <address className="mt-5 space-y-3 text-sm not-italic sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3 sm:space-y-0 xl:block xl:space-y-3">
+            <address className="mt-5 space-y-3 text-sm not-italic sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-8 sm:gap-y-3 xl:block xl:space-y-3">
               <p className="flex gap-2.5">
                 <MapPin
                   aria-hidden="true"

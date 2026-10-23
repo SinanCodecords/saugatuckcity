@@ -82,7 +82,9 @@ export function MeetingSchedule() {
                         </span>
                       </a>
                     </th>
-                    <td className={`${cell} text-slate-700 lg:whitespace-nowrap`}>
+                    <td
+                      className={`${cell} text-pretty text-slate-700 lg:whitespace-nowrap`}
+                    >
                       {board.meets}
                       {board.where ? (
                         <span className="mt-1 block text-xs text-slate-600 sm:hidden">

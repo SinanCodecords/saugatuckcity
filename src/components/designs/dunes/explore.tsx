@@ -10,21 +10,21 @@ const places = [
     href: `${pageHref("dunes", "parks")}#beach`,
     note: "Ranked among the best freshwater beaches in the country.",
     image: heroImages.lake,
-    alt: "Sunlit shoreline of Lake Michigan at Oval Beach with calm water and sand",
+    alt: "Beachgoers on the Lake Michigan shore below grassy dunes",
   },
   {
     title: "Downtown",
     href: "#",
     note: "Galleries, shops and restaurants along Butler Street.",
     image: heroImages.downtown,
-    alt: "Tree-lined downtown street with small storefronts in late afternoon light",
+    alt: "Ice cream shop sign on a clapboard wall in Saugatuck",
   },
   {
     title: "Harbor",
-    href: "#",
+    href: `${pageHref("dunes", "parks")}#chain-ferry`,
     note: "The Kalamazoo River, the chain ferry and the marina.",
     image: heroImages.marina,
-    alt: "Sailboats docked in the Saugatuck marina on the Kalamazoo River",
+    alt: "The Saugatuck harbor and marina seen through the trees",
   },
 ] as const
 

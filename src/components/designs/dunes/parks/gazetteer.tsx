@@ -40,23 +40,25 @@ export function DunesParksGazetteer() {
         <p id="dn-parks-gazetteer-index" className={kicker}>
           The gazetteer · {total} places, {padNumber(1)}–{padNumber(total)}
         </p>
-        <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+        <ul className="mt-3 flex flex-wrap gap-x-6">
           {gazetteer.map((area) => (
             <li key={area.id}>
               <a
                 href={`#${area.id}`}
-                className={`group inline-flex items-center gap-1.5 rounded-sm text-[15px] font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) ${focusRing}`}
+                className={`group inline-block rounded-sm py-1 text-[15px] leading-snug font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) ${focusRing}`}
               >
-                {area.title}
-                <span className="text-[13px] font-normal text-(--dn-ink-soft) tabular-nums">
-                  <span className="sr-only">, </span>
-                  {rangeLabel(area.parks.map(({ number }) => number))}
+                {area.title}{" "}
+                <span className="whitespace-nowrap">
+                  <span className="ml-0.5 text-[13px] font-normal text-(--dn-ink-soft) tabular-nums">
+                    <span className="sr-only">, </span>
+                    {rangeLabel(area.parks.map(({ number }) => number))}
+                  </span>
+                  <ArrowDown
+                    className="ml-1.5 inline-block size-3.5 align-[-0.125em] text-(--dn-terra) transition-transform duration-200 group-hover:translate-y-0.5"
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
                 </span>
-                <ArrowDown
-                  className="size-3.5 shrink-0 text-(--dn-terra) transition-transform duration-200 group-hover:translate-y-0.5"
-                  strokeWidth={1.75}
-                  aria-hidden="true"
-                />
               </a>
             </li>
           ))}
@@ -111,9 +113,10 @@ export function DunesParksGazetteer() {
                 )}
               </div>
 
+              {/* The next area's top rule closes the last entry. */}
               <ol
                 start={area.parks[0]?.number}
-                className="mt-8 border-t border-(--dn-ink) lg:mt-12"
+                className="mt-8 border-t border-(--dn-ink) lg:mt-12 [&>li:last-child>article]:border-b-0 [&>li:last-child>article]:pb-0"
               >
                 {area.parks.map(({ park, number }) => (
                   <li key={park.id}>

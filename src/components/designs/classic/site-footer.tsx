@@ -63,7 +63,12 @@ export function SiteFooter() {
           >
             &middot;
           </span>
-          <span className="text-balance">{siteConfig.contact.address}</span>
+          {/* Keep "PO Box 86" and "MI 49453" intact when the address wraps on phones */}
+          <span>
+            {siteConfig.contact.address
+              .replace("Box ", "Box ")
+              .replace(/ (\d{5})$/, " $1")}
+          </span>
           <span
             aria-hidden="true"
             className="mx-2 hidden text-(--muted) sm:inline"

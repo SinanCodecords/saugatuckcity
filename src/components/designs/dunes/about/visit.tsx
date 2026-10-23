@@ -25,11 +25,11 @@ export function DunesAboutVisit() {
           </div>
 
           {/*
-           * Stacked on phones; on tablets the address takes a full row above
-           * phone and hours; three columns from desktop up.
+           * Stacked on phones; up to small desktops the address takes a full
+           * row above phone and hours; three columns once there is room.
            */}
-          <dl className="grid grid-cols-1 border-t border-(--dn-ink) sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
-            <div className="border-b border-(--dn-rule) py-5 sm:col-span-2 sm:py-6 lg:col-span-1 lg:border-r lg:border-b-0 lg:pr-6">
+          <dl className="grid grid-cols-1 border-t border-(--dn-ink) sm:grid-cols-2 lg:col-span-8 xl:grid-cols-3">
+            <div className="border-b border-(--dn-rule) py-5 sm:col-span-2 sm:py-6 xl:col-span-1 xl:border-r xl:border-b-0 xl:pr-6">
               <dt className={detailLabel}>Address</dt>
               <dd
                 className={`mt-2 ${serif} text-lg leading-snug text-(--dn-ink)`}
@@ -39,7 +39,7 @@ export function DunesAboutVisit() {
                 </address>
               </dd>
             </div>
-            <div className="border-b border-(--dn-rule) py-5 sm:border-r sm:border-b-0 sm:py-6 sm:pr-6 lg:px-6">
+            <div className="border-b border-(--dn-rule) py-5 sm:border-r sm:border-b-0 sm:py-6 sm:pr-6 xl:px-6">
               <dt className={detailLabel}>Phone</dt>
               <dd className={`mt-2 ${serif} text-lg leading-snug`}>
                 <a

@@ -53,7 +53,7 @@ export function DunesServices() {
           </Link>
         </div>
 
-        <ol className="mt-8 grid sm:mt-10 grid-cols-1 border-t border-(--dn-rule) sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-8 grid grid-cols-1 border-t border-(--dn-rule) sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
           {quickLinks.map((link, index) => {
             const Icon = icons[link.icon]
             const number = String(index + 1).padStart(2, "0")
@@ -77,7 +77,7 @@ export function DunesServices() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col">
-                    <span className="font-(family-name:--font-dunes-serif) text-[22px] leading-snug sm:text-2xl text-(--dn-ink) transition-colors group-hover:text-(--dn-teal)">
+                    <span className="font-(family-name:--font-dunes-serif) text-[22px] leading-snug text-(--dn-ink) transition-colors group-hover:text-(--dn-teal) sm:text-2xl">
                       {link.label}
                     </span>
                     <span className="mt-2 text-[15px] leading-relaxed text-(--dn-ink-soft)">

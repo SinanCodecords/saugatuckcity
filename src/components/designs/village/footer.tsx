@@ -32,7 +32,7 @@ export function VillageFooter() {
   return (
     <footer className="mt-8 bg-(--v-primary) text-white">
       <Container className="py-14 sm:py-16">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:gap-x-10 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:gap-x-10 lg:grid-cols-12 lg:gap-8">
           <div className="col-span-2 md:col-span-1 lg:col-span-4">
             <a
               href="#"

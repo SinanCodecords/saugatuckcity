@@ -56,7 +56,7 @@ export function DunesNews() {
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 />
               </div>
-              <div className="mt-6 flex items-baseline gap-3 text-[11px] tracking-[0.16em] uppercase">
+              <div className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[11px] tracking-[0.16em] uppercase">
                 <span className="font-semibold text-(--dn-terra)">
                   {feature.category}
                 </span>
@@ -97,10 +97,10 @@ export function DunesNews() {
                       href="#"
                       className="group block rounded-sm py-6 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-teal)"
                     >
-                      <div className="flex items-baseline gap-3 text-[11px] tracking-[0.16em] uppercase">
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 text-[11px] tracking-[0.16em] uppercase">
                         <time
                           dateTime={item.date}
-                          className="text-(--dn-ink-soft) tabular-nums"
+                          className="whitespace-nowrap text-(--dn-ink-soft) tabular-nums"
                         >
                           {formatDate(item.date)}
                         </time>

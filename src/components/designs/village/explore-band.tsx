@@ -28,7 +28,7 @@ const tiles = [
     href: pageHref("village", "departments"),
     line: `${departments.length} departments, from the Clerk to Public Works, ready to help.`,
     image: heroImages.downtown,
-    alt: "Storefronts along a tree-lined downtown street",
+    alt: "Ice cream shop sign on a clapboard wall in Saugatuck",
     icon: Building2,
   },
 ]

@@ -3,6 +3,8 @@ import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { departments, mainNav, navHref, pageHref } from "@/content/home"
 
+import { Phrases } from "./about/shared"
+
 // Fixed so the fully static prerender never touches a request-time clock.
 const copyrightYear = 2026
 
@@ -30,7 +32,9 @@ export function DunesFooter() {
             </p>
 
             <address className="mt-8 text-[15px] leading-relaxed text-(--dn-ink-soft) not-italic">
-              <p className="text-(--dn-ink)">{siteConfig.contact.address}</p>
+              <p className="text-(--dn-ink)">
+                <Phrases text={siteConfig.contact.address} />
+              </p>
               <p className="mt-2">
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\D/g, "")}`}

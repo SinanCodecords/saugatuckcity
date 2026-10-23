@@ -119,8 +119,8 @@ export function VillageHero() {
             <div className="relative grid aspect-[5/5.2] grid-cols-6 grid-rows-6">
               <div className="relative col-span-4 col-start-1 row-span-4 row-start-1 overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)]">
                 <Image
-                  src={heroImages.downtown}
-                  alt="Shops and trees along Butler Street in downtown Saugatuck"
+                  src={heroImages.marina}
+                  alt="The Saugatuck harbor and marina seen through the trees"
                   fill
                   preload
                   sizes="(max-width: 1024px) 70vw, 32vw"
@@ -130,7 +130,7 @@ export function VillageHero() {
               <div className="relative col-span-3 col-start-4 row-span-3 row-start-3 overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] ring-6 ring-(--v-bg)">
                 <Image
                   src={heroImages.lake}
-                  alt="Waves rolling onto the Lake Michigan shoreline at sunset"
+                  alt="Beachgoers on the Lake Michigan shore below grassy dunes"
                   fill
                   sizes="(max-width: 1024px) 50vw, 24vw"
                   className="object-cover"
@@ -138,8 +138,8 @@ export function VillageHero() {
               </div>
               <div className="relative col-span-3 col-start-1 row-span-2 row-start-5 overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] ring-6 ring-(--v-bg)">
                 <Image
-                  src={heroImages.marina}
-                  alt="Sailboats docked at the marina on the Kalamazoo River"
+                  src={heroImages.downtown}
+                  alt="Ice cream shop sign on a clapboard wall in Saugatuck"
                   fill
                   sizes="(max-width: 1024px) 50vw, 24vw"
                   className="object-cover"

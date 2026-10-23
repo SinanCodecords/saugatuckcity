@@ -45,7 +45,7 @@ export function VillageGettingThere() {
           description="Three easy ways to reach the sand, and skip the hunt for a parking spot."
         />
 
-        <ol className="mt-8 grid gap-5 md:grid-cols-3">
+        <ol className="mt-8 grid gap-4 sm:gap-5 lg:grid-cols-3">
           {gettingToTheBeach.options.map((option, index) => {
             const step = steps[index % steps.length]
             const Icon = step.icon
@@ -54,16 +54,18 @@ export function VillageGettingThere() {
               <li
                 key={option.label}
                 className={cn(
-                  "flex flex-col rounded-3xl border p-6 sm:p-7 md:p-5 lg:p-7",
+                  // Phones stack; tablets lay each card out as a row (badge
+                  // beside text) so three narrow columns don't cramp the copy.
+                  "flex flex-col rounded-3xl border p-6 sm:flex-row sm:gap-6 sm:p-7 lg:flex-col lg:gap-0",
                   step.card
                 )}
               >
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center justify-between gap-3 sm:flex-col sm:justify-start sm:gap-4 lg:flex-row lg:justify-between lg:gap-3">
                   <span
                     aria-hidden="true"
                     className={cn(
                       heading,
-                      "inline-flex size-12 items-center justify-center rounded-full bg-white text-xl font-extrabold",
+                      "inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-white text-xl font-extrabold",
                       step.ink
                     )}
                   >
@@ -71,30 +73,32 @@ export function VillageGettingThere() {
                   </span>
                   <Icon className={cn("size-7", step.ink)} aria-hidden="true" />
                 </div>
-                <h3
-                  className={cn(
-                    heading,
-                    "mt-5 text-xl leading-tight font-extrabold tracking-tight text-(--v-text) sm:text-2xl md:text-xl lg:text-2xl"
-                  )}
-                >
-                  <span className="sr-only">Option {index + 1}: </span>
-                  {option.label}
-                </h3>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-(--v-text) sm:text-base">
-                  {option.body}
-                </p>
-                {phone ? (
-                  <div className="mt-auto flex flex-wrap items-center gap-x-2.5 gap-y-2 pt-5">
-                    <CallPill
-                      phone={phone}
-                      who={`the ${option.label}`}
-                      className={step.ring}
-                    />
-                    <span className="text-sm font-semibold text-(--v-text)">
-                      {phone}
-                    </span>
-                  </div>
-                ) : null}
+                <div className="flex min-w-0 flex-1 flex-col">
+                  <h3
+                    className={cn(
+                      heading,
+                      "mt-5 text-xl leading-tight font-extrabold tracking-tight text-(--v-text) sm:mt-1 sm:text-2xl lg:mt-5"
+                    )}
+                  >
+                    <span className="sr-only">Option {index + 1}: </span>
+                    {option.label}
+                  </h3>
+                  <p className="mt-2 text-[0.95rem] leading-relaxed text-(--v-text) sm:text-base">
+                    {option.body}
+                  </p>
+                  {phone ? (
+                    <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2 pt-5 sm:pt-4 lg:pt-5">
+                      <CallPill
+                        phone={phone}
+                        who={`the ${option.label}`}
+                        className={step.ring}
+                      />
+                      <span className="text-sm font-semibold text-(--v-text)">
+                        {phone}
+                      </span>
+                    </div>
+                  ) : null}
+                </div>
               </li>
             )
           })}

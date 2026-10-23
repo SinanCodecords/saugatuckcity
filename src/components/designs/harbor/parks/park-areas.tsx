@@ -23,7 +23,7 @@ export function ParkAreas() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <section
           aria-labelledby="harbor-parks-directory-heading"
-          className="rounded-lg border border-slate-200 bg-slate-50 p-5 sm:p-6"
+          className="rounded-lg border border-slate-200 bg-slate-50 p-4 sm:p-6"
         >
           <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1">
             <h2
@@ -45,7 +45,7 @@ export function ParkAreas() {
                   <li key={area.id}>
                     <a
                       href={`#${area.anchor}`}
-                      className="group inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white py-1.5 pr-1.5 pl-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:border-(--navy) hover:text-(--navy) focus-visible:border-(--navy) focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:ring-offset-2 focus-visible:outline-none"
+                      className="group inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white py-1.5 pr-1.5 pl-3 text-[13px] font-semibold whitespace-nowrap text-slate-900 shadow-sm transition-colors hover:border-(--navy) hover:text-(--navy) focus-visible:border-(--navy) focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:ring-offset-2 focus-visible:outline-none sm:gap-2 sm:text-sm"
                     >
                       <Icon
                         aria-hidden="true"

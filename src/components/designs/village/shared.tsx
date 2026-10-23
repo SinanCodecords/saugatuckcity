@@ -23,15 +23,25 @@ export function Container({
 
 /**
  * "Jump to" pill rows in page heroes. On phones the pills sit in a tidy
- * two-column grid (long labels wrap inside the pill) instead of stacking one
- * per row; from `sm` up they flow as a normal wrapping row.
+ * two-column grid (long labels wrap inside the pill) instead of stacking
+ * unevenly; under 360px they go full width, and from `sm` up they flow as a
+ * normal wrapping row.
  */
 export const jumpList =
-  "grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:gap-2.5"
+  "grid gap-2.5 min-[360px]:grid-cols-2 sm:flex sm:flex-wrap"
 
-/** Lets the first jump pill span the row when the count is odd. */
-export function jumpItem(index: number, count: number) {
-  return index === 0 && count % 2 === 1 ? "col-span-2" : undefined
+/**
+ * With an odd count one pill spans the full row: the first by default, or the
+ * last when that is the longest label.
+ */
+export function jumpItem(
+  index: number,
+  count: number,
+  span: "first" | "last" = "first"
+) {
+  if (count % 2 === 0) return undefined
+  const spanned = span === "first" ? 0 : count - 1
+  return index === spanned ? "min-[360px]:col-span-2" : undefined
 }
 
 export const jumpPill =
