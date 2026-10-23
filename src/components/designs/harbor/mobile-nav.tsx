@@ -14,6 +14,8 @@ import {
 import { siteConfig } from "@/config/site"
 import { mainNav, navHref, type SitePage } from "@/content/home"
 
+import { HarborLogo } from "./logo"
+
 export function MobileNav({ current }: { current: SitePage }) {
   const [open, setOpen] = useState(false)
 
@@ -31,14 +33,9 @@ export function MobileNav({ current }: { current: SitePage }) {
         className="w-[88vw] gap-0 border-l border-(--navy-dark) bg-white p-0 text-slate-900 sm:max-w-sm [&_[data-slot=sheet-close]]:text-white [&_[data-slot=sheet-close]]:hover:bg-white/15 [&_[data-slot=sheet-close]]:hover:text-white"
       >
         <SheetHeader className="gap-1 bg-(--navy) p-5 text-white">
-          <SheetTitle className="flex items-center gap-3 text-base font-semibold text-white">
-            <span
-              aria-hidden="true"
-              className="flex size-9 items-center justify-center rounded-full border-2 border-(--gold) bg-(--navy-dark) text-sm font-bold text-white"
-            >
-              S
-            </span>
-            City of Saugatuck
+          <SheetTitle className="flex items-center text-base font-semibold text-white">
+            <HarborLogo imageClassName="h-9" />
+            <span className="sr-only">City of Saugatuck</span>
           </SheetTitle>
           <SheetDescription className="text-sm text-slate-200">
             Michigan

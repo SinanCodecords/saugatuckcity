@@ -3,6 +3,8 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react"
 import { siteConfig } from "@/config/site"
 import { departments, pageHref, quickLinks } from "@/content/home"
 
+import { HarborLogo } from "./logo"
+
 const footerLink =
   "inline-block rounded py-0.5 text-sm text-slate-200 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--gold)"
 
@@ -29,22 +31,10 @@ export function SiteFooter() {
         <div className="grid gap-10 sm:grid-cols-3 sm:gap-8 xl:grid-cols-4">
           {/* Contact */}
           <div className="sm:col-span-3 xl:col-span-1">
-            <div className="flex items-center gap-3">
-              <span
-                aria-hidden="true"
-                className="flex size-10 items-center justify-center rounded-full border-2 border-(--gold) bg-(--navy-dark) text-base font-bold text-white"
-              >
-                S
-              </span>
-              <p className="leading-tight">
-                <span className="block text-base font-semibold text-white">
-                  City of Saugatuck
-                </span>
-                <span className="block text-[11px] font-medium tracking-[0.18em] text-(--gold) uppercase">
-                  Michigan
-                </span>
-              </p>
-            </div>
+            <p>
+              <HarborLogo imageClassName="h-12" />
+              <span className="sr-only">City of Saugatuck, Michigan</span>
+            </p>
             <address className="mt-5 space-y-3 text-sm not-italic sm:grid sm:grid-cols-2 sm:space-y-0 sm:gap-x-8 sm:gap-y-3 xl:block xl:space-y-3">
               <p className="flex gap-2.5">
                 <MapPin

@@ -9,6 +9,7 @@ import {
   type SitePage,
 } from "@/content/home"
 
+import { HarborLogo } from "./logo"
 import { MobileNav } from "./mobile-nav"
 
 const utilityLink =
@@ -58,23 +59,10 @@ export function SiteHeader({ current }: { current: SitePage }) {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8 xl:py-0">
           <a
             href={pageHref("harbor", "home")}
-            className="group flex items-center gap-3 rounded-md py-2 focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:ring-offset-2 focus-visible:ring-offset-(--navy) focus-visible:outline-none"
+            className="flex shrink-0 rounded-lg py-2 focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:ring-offset-2 focus-visible:ring-offset-(--navy) focus-visible:outline-none"
             aria-label="City of Saugatuck, Michigan — home"
           >
-            <span
-              aria-hidden="true"
-              className="flex size-11 shrink-0 items-center justify-center rounded-full border-2 border-(--gold) bg-(--navy-dark) text-lg font-bold tracking-tight text-white shadow-sm lg:size-12"
-            >
-              S
-            </span>
-            <span className="flex flex-col leading-tight">
-              <span className="text-base font-semibold tracking-tight whitespace-nowrap sm:text-lg">
-                City of Saugatuck
-              </span>
-              <span className="text-[11px] font-medium tracking-[0.18em] text-(--gold) uppercase">
-                Michigan
-              </span>
-            </span>
+            <HarborLogo preload imageClassName="h-10 sm:h-11" />
           </a>
 
           <nav aria-label="Main" className="hidden xl:block">
