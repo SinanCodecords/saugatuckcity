@@ -5,10 +5,10 @@ import { departmentDirectory } from "@/content/departments"
 import { departmentIcons, fallbackDepartmentIcon } from "./icons"
 import { groupedDepartments, tasksId } from "./utils"
 
-const linkClass =
+export const linkClass =
   "group flex items-start gap-3 px-5 py-2.5 text-sm leading-snug font-medium text-(--ink) transition-colors hover:bg-(--blue-pale) hover:text-(--blue-text) focus-visible:bg-(--blue-pale) focus-visible:text-(--blue-text) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none focus-visible:ring-inset"
 
-function Chevron() {
+export function Chevron() {
   return (
     <ChevronRight
       aria-hidden="true"

@@ -15,7 +15,7 @@ import { inlineLink, textLink } from "../about/ui"
 import { departmentIcons, fallbackDepartmentIcon } from "./icons"
 import { telHref } from "./utils"
 
-function SubHeading({ children }: { children: ReactNode }) {
+export function SubHeading({ children }: { children: ReactNode }) {
   return (
     <h4 className="text-[11px] font-semibold tracking-[0.2em] text-(--muted) uppercase">
       {children}
@@ -23,7 +23,7 @@ function SubHeading({ children }: { children: ReactNode }) {
   )
 }
 
-function PhoneLink({ phone, who }: { phone: string; who: string }) {
+export function PhoneLink({ phone, who }: { phone: string; who: string }) {
   return (
     <a
       href={telHref(phone)}
@@ -36,7 +36,7 @@ function PhoneLink({ phone, who }: { phone: string; who: string }) {
   )
 }
 
-function websiteLabel(url: string) {
+export function websiteLabel(url: string) {
   return new URL(url).hostname.replace(/^www\./, "")
 }
 

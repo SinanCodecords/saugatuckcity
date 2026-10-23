@@ -30,14 +30,15 @@ const icons: Record<string, LucideIcon> = {
   Flame,
 }
 
-const columnLabel =
+export const columnLabel =
   "text-[11px] font-semibold tracking-[0.22em] text-(--dn-ink-soft) uppercase"
 
-const smallCaps = "text-[11px] tracking-[0.18em] text-(--dn-ink-soft) uppercase"
+export const smallCaps =
+  "text-[11px] tracking-[0.18em] text-(--dn-ink-soft) uppercase"
 
-const phoneLink = `rounded-sm text-(--dn-teal) underline decoration-(--dn-teal)/40 underline-offset-4 transition-colors hover:text-(--dn-teal-deep) hover:decoration-(--dn-teal-deep) ${focusRing}`
+export const phoneLink = `rounded-sm text-(--dn-teal) underline decoration-(--dn-teal)/40 underline-offset-4 transition-colors hover:text-(--dn-teal-deep) hover:decoration-(--dn-teal-deep) ${focusRing}`
 
-function tel(phone: string) {
+export function tel(phone: string) {
   return `tel:${phone.replace(/\D/g, "")}`
 }
 

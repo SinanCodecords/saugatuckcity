@@ -5,7 +5,7 @@
  */
 
 /** Pages built so far in the shortlisted design variants. */
-export type SitePage = "home" | "about" | "departments"
+export type SitePage = "home" | "about" | "departments" | "boards"
 
 type NavItem = {
   readonly label: string
@@ -17,7 +17,7 @@ export const mainNav: readonly NavItem[] = [
   { label: "Home", href: "/", page: "home" },
   { label: "About", href: "#", page: "about" },
   { label: "Departments", href: "#", page: "departments" },
-  { label: "Boards & Committees", href: "#" },
+  { label: "Boards & Committees", href: "#", page: "boards" },
   { label: "Parks & Recreation", href: "#" },
   { label: "Forms", href: "#" },
   { label: "Links", href: "#" },
@@ -28,6 +28,7 @@ const pagePaths: Record<SitePage, string> = {
   home: "",
   about: "/about",
   departments: "/departments",
+  boards: "/boards",
 }
 
 /** URL of a built page inside one design variant, e.g. /designs/dunes/about. */
