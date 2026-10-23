@@ -1,8 +1,9 @@
-export const designs = [
+/** Every design variant built so far. Each stays routable at /designs/<slug>. */
+export const allDesigns = [
   {
     slug: "harbor",
     name: "Harbor",
-    tagline: "Classic civic. Navy and white, services first.",
+    tagline: "Modern civic. Navy and white, services first.",
   },
   {
     slug: "dunes",
@@ -43,4 +44,12 @@ export const designs = [
   },
 ] as const
 
-export type DesignSlug = (typeof designs)[number]["slug"]
+export type DesignSlug = (typeof allDesigns)[number]["slug"]
+
+/** The shortlist shown to the client, in presentation order. */
+const shortlist: DesignSlug[] = ["classic", "harbor", "village", "dunes"]
+
+/** Designs listed on the index pages and in the switcher bar. */
+export const designs = shortlist.flatMap((slug) =>
+  allDesigns.filter((design) => design.slug === slug)
+)
