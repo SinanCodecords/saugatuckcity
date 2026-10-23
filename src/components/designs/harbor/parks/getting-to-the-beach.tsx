@@ -28,11 +28,11 @@ export function GettingToTheBeach() {
           {title}
         </h2>
 
-        <ol className="mt-8 grid gap-4 md:grid-cols-3 md:gap-6">
+        <ol className="mt-8 grid gap-4 lg:grid-cols-3 lg:gap-6">
           {options.map((option, index) => (
             <li
               key={option.label}
-              className="flex gap-4 rounded-lg border border-white/15 bg-white/5 p-5 sm:p-6 md:flex-col"
+              className="flex gap-4 rounded-lg border border-white/15 bg-white/5 p-5 sm:p-6 lg:flex-col"
             >
               <span
                 aria-hidden="true"

@@ -7,13 +7,14 @@ import { columnLabel, phoneLink } from "../departments/entry"
 import { boardIcons } from "./shared"
 
 /**
- * Each detail keeps its own column on wider screens, so Meets, Where and
- * Members line up from one entry to the next like an almanac's tables.
+ * Meets, Where and Members always read in this order. They fill the row from
+ * the left, so a board with only one or two details never shows empty
+ * columns before them.
  */
 const details = [
-  { key: "meets", label: "Meets", column: "sm:col-start-1" },
-  { key: "where", label: "Where", column: "sm:col-start-2" },
-  { key: "members", label: "Members", column: "sm:col-start-3" },
+  { key: "meets", label: "Meets" },
+  { key: "where", label: "Where" },
+  { key: "members", label: "Members" },
 ] as const
 
 /** A current board: icon, serif name, standfirst, then one row of details. */
@@ -53,9 +54,9 @@ export function DunesBoardEntry({ board }: { board: Board }) {
           {present.length > 0 && (
             <dl className="mt-6 grid grid-cols-1 gap-x-10 gap-y-4 border-t border-(--dn-rule) pt-5 sm:grid-cols-3">
               {present.map((detail) => (
-                <div key={detail.key} className={`min-w-0 ${detail.column}`}>
+                <div key={detail.key} className="min-w-0">
                   <dt className={columnLabel}>{detail.label}</dt>
-                  <dd className="mt-1 text-[15px] leading-relaxed text-(--dn-ink)">
+                  <dd className="mt-1 text-[15px] leading-relaxed text-pretty text-(--dn-ink)">
                     {board[detail.key]}
                   </dd>
                 </div>
@@ -110,7 +111,7 @@ export function DunesPastCommitteeEntry({ board }: { board: Board }) {
         />
         {board.name}
       </h3>
-      <p className="order-first text-[11px] tracking-[0.18em] text-(--dn-ink-soft) uppercase">
+      <p className="order-first text-[11px] leading-relaxed tracking-[0.18em] text-pretty text-(--dn-ink-soft) uppercase">
         <span className="font-semibold tracking-[0.22em] text-(--dn-terra)">
           Concluded
         </span>

@@ -11,14 +11,15 @@ export function ParkCard({ park }: { park: Park }) {
   const Icon = parkIcons[park.icon]
   const headingId = `${park.id}-heading`
   const { location, size, features, rules, phone } = park
+  const hasDetails = Boolean(location || size || phone)
 
   return (
     <article
       id={park.id}
       aria-labelledby={headingId}
-      className={`${departmentAnchor} flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${targetHighlight}`}
+      className={`${departmentAnchor} flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${targetHighlight} @2xl:flex-row`}
     >
-      <div className="flex-1 p-5 sm:p-6">
+      <div className={`p-5 sm:p-6 @2xl:flex-1 ${hasDetails ? "" : "flex-1"}`}>
         <div className="flex items-start gap-4">
           <span
             aria-hidden="true"
@@ -91,8 +92,8 @@ export function ParkCard({ park }: { park: Park }) {
         ) : null}
       </div>
 
-      {location || size || phone ? (
-        <div className="border-t border-slate-200 bg-slate-50 p-5 sm:px-6">
+      {hasDetails ? (
+        <div className="flex-1 border-t border-slate-200 bg-slate-50 p-5 sm:px-6 @2xl:w-80 @2xl:flex-none @2xl:border-t-0 @2xl:border-l @2xl:py-6">
           <dl className="space-y-3">
             {location ? (
               <DetailRow icon={MapPin} label="Location" value={location} />

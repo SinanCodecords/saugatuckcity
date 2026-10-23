@@ -16,7 +16,7 @@ import {
 import { siteConfig } from "@/config/site"
 import type { Department } from "@/content/departments"
 
-import { focusRing, serif } from "../about/shared"
+import { focusRing, Phrases, serif } from "../about/shared"
 
 const icons: Record<string, LucideIcon> = {
   Landmark,
@@ -73,7 +73,7 @@ export function DunesDepartmentEntry({
     <article
       id={department.id}
       aria-labelledby={headingId}
-      className="scroll-mt-56 border-b border-(--dn-rule) py-10 sm:py-12 lg:py-14"
+      className="scroll-mt-56 border-b border-(--dn-rule) py-9 sm:py-12 lg:py-14"
     >
       <div className="grid grid-cols-1 gap-y-5 lg:grid-cols-12 lg:gap-x-10">
         {/* Number and icon */}
@@ -104,9 +104,13 @@ export function DunesDepartmentEntry({
             {department.summary}
           </p>
 
-          {/* Three columns */}
-          <div className="mt-8 grid grid-cols-1 gap-8 border-t border-(--dn-rule) pt-6 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-10 lg:pt-8">
-            <div>
+          {/*
+           * Three columns on desktop. On tablets "What we handle" runs down
+           * the left while People and Where stack on the right, so no column
+           * is left with an empty cell beside it.
+           */}
+          <div className="mt-7 grid grid-cols-1 gap-7 border-t border-(--dn-rule) pt-6 sm:mt-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-8 lg:mt-10 lg:grid-cols-3 lg:gap-10 lg:pt-8">
+            <div className="sm:row-span-2 lg:row-span-1">
               <h4 className={columnLabel}>What we handle</h4>
               <ul className="mt-3 space-y-2">
                 {department.services.map((service) => (
@@ -153,8 +157,8 @@ export function DunesDepartmentEntry({
               </div>
             )}
 
-            <div className="sm:col-span-2 lg:col-span-1">
-              <h4 className={columnLabel}>Where</h4>
+            <div>
+              <h4 className={columnLabel}>{location ? "Where" : "Contact"}</h4>
               {location && (
                 <dl className="mt-3 space-y-3">
                   <div>
@@ -166,7 +170,7 @@ export function DunesDepartmentEntry({
                         {location.name}
                       </span>
                       <span className="mt-0.5 block text-[15px] leading-relaxed text-(--dn-ink-soft)">
-                        {location.address}
+                        <Phrases text={location.address} />
                       </span>
                     </dd>
                   </div>
@@ -174,7 +178,7 @@ export function DunesDepartmentEntry({
                     <div>
                       <dt className={smallCaps}>Hours</dt>
                       <dd className="mt-0.5 text-[15px] leading-relaxed text-(--dn-ink)">
-                        {location.hours}
+                        <Phrases text={location.hours} />
                       </dd>
                     </div>
                   )}

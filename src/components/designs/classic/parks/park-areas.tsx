@@ -11,11 +11,19 @@ import { DetailItem } from "./ui"
 import { areaId, featureLinks, groupedParks } from "./utils"
 
 /** Placeholder photos for the two areas the content has pictures for. */
-const areaImages: Partial<Record<string, { src: string; alt: string }>> = {
-  river: { src: parksImages.water, alt: "A sailboat on open water" },
+const areaImages: Partial<
+  Record<string, { src: string; alt: string; position: string }>
+> = {
+  // Low focal point keeps the hull in the wide crop instead of a slice of sail
+  river: {
+    src: parksImages.water,
+    alt: "A sailboat on open water",
+    position: "object-[center_78%]",
+  },
   nature: {
     src: parksImages.woods,
     alt: "Autumn woods reflected in still water",
+    position: "object-center",
   },
 }
 
@@ -38,7 +46,7 @@ function ParkCard({ park }: { park: Park }) {
         </span>
         <h3
           id={titleId}
-          className="min-w-0 text-base leading-snug font-semibold text-(--ink)"
+          className="min-w-0 text-base leading-snug font-semibold text-balance text-(--ink)"
         >
           {park.name}
         </h3>
@@ -134,25 +142,26 @@ export function ParkAreas() {
             >
               {area.title}
             </SectionHeading>
-            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-(--body)">
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty text-(--body)">
               {area.description}
             </p>
 
             {image ? (
-              <div className="relative mt-6 aspect-[4/1] overflow-hidden rounded-md border border-(--rule) bg-(--band)">
+              <div className="relative mt-6 aspect-[2/1] overflow-hidden rounded-md border border-(--rule) bg-(--band) sm:aspect-[3/1] lg:aspect-[4/1]">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
                   sizes="(min-width: 1152px) 784px, (min-width: 1024px) 66vw, 100vw"
-                  className="object-cover"
+                  className={`object-cover ${image.position}`}
                 />
               </div>
             ) : null}
 
+            {/* An odd last card spans both columns rather than leaving a hole beside it */}
             <ul className="mt-6 grid gap-5 md:grid-cols-2">
               {area.parks.map((park) => (
-                <li key={park.id}>
+                <li key={park.id} className="md:last:odd:col-span-2">
                   <ParkCard park={park} />
                 </li>
               ))}

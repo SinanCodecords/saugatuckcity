@@ -21,7 +21,7 @@ export function History() {
           >
             Our history
           </h2>
-          <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-lg bg-slate-100 shadow-sm lg:aspect-[4/5]">
+          <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-lg bg-slate-100 shadow-sm sm:aspect-[21/9] lg:aspect-[4/5]">
             <Image
               src={aboutImages.history}
               alt="Autumn trees reflected in still water"

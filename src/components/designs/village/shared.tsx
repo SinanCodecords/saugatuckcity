@@ -21,6 +21,30 @@ export function Container({
   )
 }
 
+/**
+ * "Jump to" pill rows in page heroes. On phones the pills sit in a tidy
+ * two-column grid (long labels wrap inside the pill) instead of stacking one
+ * per row; from `sm` up they flow as a normal wrapping row.
+ */
+export const jumpList =
+  "grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:gap-2.5"
+
+/** Lets the first jump pill span the row when the count is odd. */
+export function jumpItem(index: number, count: number) {
+  return index === 0 && count % 2 === 1 ? "col-span-2" : undefined
+}
+
+export const jumpPill =
+  "h-auto min-h-11 w-full px-3.5 py-2 text-center text-[0.9rem] leading-tight whitespace-normal sm:h-11 sm:w-auto sm:px-4 sm:py-0 sm:whitespace-nowrap"
+
+/**
+ * Two-column masonry for directory cards (departments, parks) whose lengths
+ * vary a lot. Items keep their natural height, so no card is stretched into
+ * a mostly empty box to match its neighbour.
+ */
+export const masonryList = "mt-8 md:columns-2 md:gap-5"
+export const masonryItem = "mb-5 break-inside-avoid last:mb-0"
+
 type PillProps = React.ComponentProps<"a"> & {
   tone?: "primary" | "secondary" | "ghost" | "inverse"
   size?: "md" | "lg"

@@ -24,7 +24,7 @@ export function WhoToContact() {
             <div className="min-w-0">
               <h2
                 id="harbor-who-heading"
-                className="text-2xl font-semibold tracking-tight text-(--navy)"
+                className="text-xl font-semibold tracking-tight text-(--navy) sm:text-2xl"
               >
                 Who do I contact?
               </h2>

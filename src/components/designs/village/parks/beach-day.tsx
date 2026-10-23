@@ -45,7 +45,9 @@ export function VillageBeachDay() {
           description="Everything you need for a day at Oval Beach, from passes and parking to the hand-cranked ferry across the river."
         />
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-12">
+        {/* Oval Beach runs full width (photo beside text on large screens),
+            with the passes and ferry cards side by side underneath. */}
+        <div className="mt-8 grid gap-5 lg:grid-cols-2">
           <OvalBeachCard />
           <PassesCard />
           <ChainFerryCard />
@@ -61,10 +63,10 @@ function OvalBeachCard() {
       aria-labelledby="village-parks-oval-title"
       className={cn(
         cardShadow,
-        "flex flex-col overflow-hidden rounded-[2rem] border border-(--v-line) bg-(--v-card) lg:col-span-7 lg:row-span-2"
+        "flex flex-col overflow-hidden rounded-[2rem] border border-(--v-line) bg-(--v-card) lg:col-span-2 lg:flex-row"
       )}
     >
-      <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-80 lg:flex-1">
+      <div className="relative aspect-[16/10] sm:aspect-[2/1] lg:aspect-auto lg:min-h-80 lg:w-[55%] lg:shrink-0">
         <Image
           src={parksImages.beach}
           alt="Sunset over the water at Oval Beach"
@@ -73,7 +75,7 @@ function OvalBeachCard() {
           className="object-cover"
         />
       </div>
-      <div className="p-6 sm:p-8">
+      <div className="p-6 sm:p-8 lg:self-center lg:p-10">
         <div className="flex items-center gap-3">
           <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-(--v-butter) text-[#6b5410]">
             <Sun className="size-5" aria-hidden="true" />
@@ -115,7 +117,7 @@ function PassesCard() {
   return (
     <section
       aria-labelledby="village-parks-passes-title"
-      className="rounded-[2rem] border border-(--v-mint-dark) bg-(--v-mint) p-6 sm:p-8 lg:col-span-5"
+      className="rounded-[2rem] border border-(--v-mint-dark) bg-(--v-mint) p-6 sm:p-8"
     >
       <div className="flex items-center gap-3">
         <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-(--v-primary)">
@@ -211,7 +213,7 @@ function ChainFerryCard() {
   return (
     <section
       aria-labelledby="village-parks-ferry-title"
-      className="rounded-[2rem] border border-[#c4e0ef] bg-(--v-sky) p-6 sm:p-8 lg:col-span-5"
+      className="rounded-[2rem] border border-[#c4e0ef] bg-(--v-sky) p-6 sm:p-8"
     >
       <div className="flex items-center gap-3">
         <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-[#1f4f6b]">

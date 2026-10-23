@@ -35,7 +35,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
         <div className="max-w-2xl">
-          <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-(--gold) uppercase">
+          <p className="mb-3 text-xs font-semibold tracking-[0.2em] text-balance text-(--gold) uppercase">
             Official website of the City of Saugatuck
           </p>
           <h1
@@ -65,7 +65,7 @@ export function Hero() {
               <input
                 id="harbor-hero-search"
                 type="search"
-                placeholder="Search services, forms, meetings…"
+                placeholder="Services, forms, meetings…"
                 className="h-14 w-full rounded-md border border-white/40 bg-white pr-4 pl-12 text-base text-slate-900 shadow-lg placeholder:text-slate-500 focus-visible:border-(--gold) focus-visible:ring-4 focus-visible:ring-(--gold)/40 focus-visible:outline-none"
               />
             </div>

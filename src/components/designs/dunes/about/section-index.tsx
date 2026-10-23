@@ -39,7 +39,7 @@ export function DunesAboutIndex() {
       aria-labelledby="dn-about-index"
       className="border-t border-(--dn-rule) bg-(--dn-bg-deep)/40"
     >
-      <div className={`${container} py-16 lg:py-24`}>
+      <div className={`${container} py-14 sm:py-16 lg:py-24`}>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-end lg:gap-10">
           <div className="lg:col-span-7">
             <SectionHeading
@@ -56,7 +56,7 @@ export function DunesAboutIndex() {
 
         {/* Reads down the first column, then the second, on desktop. */}
         <ol
-          className="mt-10 grid grid-cols-1 border-t border-(--dn-ink) lg:mt-14 lg:grid-flow-col lg:grid-cols-2 lg:gap-x-12"
+          className="mt-8 grid grid-cols-1 border-t border-(--dn-ink) sm:mt-10 lg:mt-14 lg:grid-flow-col lg:grid-cols-2 lg:gap-x-12"
           style={{ gridTemplateRows: `repeat(${rows}, auto)` }}
         >
           {aboutSection.map((page, index) => {
@@ -66,7 +66,7 @@ export function DunesAboutIndex() {
               <li key={page.label} className="border-b border-(--dn-rule)">
                 <Link
                   href="#"
-                  className="group grid h-full grid-cols-[2.75rem_1fr_auto] items-start gap-x-4 rounded-sm py-6 transition-colors hover:bg-(--dn-bg-deep)/70 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-teal) sm:grid-cols-[4rem_1fr_auto] sm:px-3 sm:py-7"
+                  className="group grid h-full grid-cols-[2.5rem_1fr_auto] items-start gap-x-3 rounded-sm py-5 transition-colors hover:bg-(--dn-bg-deep)/70 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-teal) sm:grid-cols-[4rem_1fr_auto] sm:gap-x-4 sm:px-3 sm:py-7"
                 >
                   <span
                     className={`${serif} text-2xl leading-none font-light text-(--dn-terra) tabular-nums sm:text-[2rem]`}

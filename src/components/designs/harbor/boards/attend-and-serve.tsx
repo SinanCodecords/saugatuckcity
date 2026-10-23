@@ -9,7 +9,7 @@ export function PhoneLink({ phone, label }: { phone: string; label: string }) {
     <a
       href={telHref(phone)}
       aria-label={label}
-      className={`inline-flex items-center gap-1.5 text-sm whitespace-nowrap ${textLink}`}
+      className={`inline-flex items-center gap-1.5 py-0.5 text-sm whitespace-nowrap ${textLink}`}
     >
       <Phone aria-hidden="true" className="size-3.5 text-(--navy)" />
       {phone}

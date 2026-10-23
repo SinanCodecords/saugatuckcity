@@ -2,7 +2,7 @@ import { ArrowRight, Clock, MapPin, Phone } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 
-import { inlineLink, textLink, Widget } from "./ui"
+import { inlineLink, keepTimes, textLink, Widget } from "./ui"
 
 const { address, phone, hours } = siteConfig.contact
 
@@ -31,7 +31,7 @@ export function CityHallWidget({ id }: { id: string }) {
             aria-hidden="true"
             className="mt-0.5 size-4 shrink-0 text-(--blue)"
           />
-          <span>{hours}</span>
+          <span>{keepTimes(hours)}</span>
         </p>
       </address>
       <a href="#" className={`${textLink} mt-4`}>

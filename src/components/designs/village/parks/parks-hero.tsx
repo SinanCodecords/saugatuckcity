@@ -5,7 +5,15 @@ import { pageHref } from "@/content/home"
 import { parksFacts, parksImages, parksIntro } from "@/content/parks"
 import { cn } from "@/lib/utils"
 
-import { Container, PillLink, focusRing, heading } from "../shared"
+import {
+  Container,
+  PillLink,
+  focusRing,
+  heading,
+  jumpItem,
+  jumpList,
+  jumpPill,
+} from "../shared"
 import { beachAnchor, eventsAnchor, findAnchor } from "./shared"
 
 const jumps = [
@@ -80,15 +88,13 @@ export function VillageParksHero() {
               {parksIntro.body}
             </p>
 
-            <ul
-              aria-label="Jump to"
-              className="mt-8 flex flex-wrap gap-2.5 sm:gap-3"
-            >
+            <ul aria-label="Jump to" className={cn(jumpList, "mt-8")}>
               {jumps.map((jump, index) => (
-                <li key={jump.href}>
+                <li key={jump.href} className={jumpItem(index, jumps.length)}>
                   <PillLink
                     href={jump.href}
                     tone={index === 0 ? "primary" : "secondary"}
+                    className={jumpPill}
                   >
                     {jump.label}
                   </PillLink>
@@ -128,7 +134,7 @@ export function VillageParksHero() {
                 <span className="text-2xl leading-none font-extrabold sm:text-3xl">
                   {badge.value}
                 </span>
-                <span className="mt-1 text-[0.65rem] font-bold tracking-[0.2em] uppercase">
+                <span className="mt-1 text-xs leading-none font-bold tracking-[0.18em] uppercase">
                   Beach
                 </span>
               </div>

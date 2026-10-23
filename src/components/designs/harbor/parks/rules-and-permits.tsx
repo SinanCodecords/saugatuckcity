@@ -11,23 +11,27 @@ function GeneralRules() {
       aria-labelledby="harbor-park-rules-heading"
       className="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm"
     >
-      <div className="flex flex-1 items-start gap-4 p-5 sm:p-6">
-        <span
-          aria-hidden="true"
-          className="flex size-11 shrink-0 items-center justify-center rounded-md bg-(--navy) text-white shadow-sm"
-        >
-          <ShieldCheck className="size-5" />
-        </span>
-        <div className="min-w-0">
-          <h2
-            id="harbor-park-rules-heading"
-            className="text-xl font-semibold tracking-tight text-(--navy) sm:text-2xl"
+      <div className="p-5 sm:p-6">
+        <div className="flex items-start gap-4">
+          <span
+            aria-hidden="true"
+            className="flex size-11 shrink-0 items-center justify-center rounded-md bg-(--navy) text-white shadow-sm"
           >
-            Park rules
-          </h2>
-          <p className="mt-1 text-sm text-slate-600">
-            These apply in every City park, beach and natural area.
-          </p>
+            <ShieldCheck className="size-5" />
+          </span>
+          <div className="min-w-0">
+            <h2
+              id="harbor-park-rules-heading"
+              className="text-xl font-semibold tracking-tight text-(--navy) sm:text-2xl"
+            >
+              Park rules
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              These apply in every City park, beach and natural area.
+            </p>
+          </div>
+        </div>
+        <div className="sm:pl-15">
           <ul className="mt-4 space-y-3">
             {parkRules.general.map((rule) => (
               <li
@@ -45,7 +49,7 @@ function GeneralRules() {
         </div>
       </div>
 
-      <p className="flex items-start gap-3 border-t border-slate-200 bg-slate-50 px-5 py-4 text-sm leading-relaxed text-slate-700 sm:px-6">
+      <p className="flex flex-1 items-start gap-3 border-t border-slate-200 bg-slate-50 px-5 py-4 text-sm leading-relaxed text-slate-700 sm:px-6">
         <Info
           aria-hidden="true"
           className="mt-0.5 size-4 shrink-0 text-(--navy)"

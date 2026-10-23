@@ -57,7 +57,7 @@ export function VillageJoinAndServe() {
               <dd
                 className={cn(
                   heading,
-                  "mt-1 text-3xl font-extrabold tracking-tight text-(--v-primary) tabular-nums sm:text-4xl"
+                  "mt-1 text-3xl font-extrabold tracking-tight whitespace-nowrap text-(--v-primary) tabular-nums sm:text-4xl lg:text-[1.75rem] xl:text-3xl"
                 )}
               >
                 {zoom.meetingId}

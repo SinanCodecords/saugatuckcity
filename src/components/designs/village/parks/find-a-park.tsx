@@ -1,7 +1,14 @@
 import { parkAreas, parks } from "@/content/parks"
 import { cn } from "@/lib/utils"
 
-import { Container, PillLink, SectionHeading } from "../shared"
+import {
+  Container,
+  PillLink,
+  SectionHeading,
+  jumpItem,
+  jumpList,
+  jumpPill,
+} from "../shared"
 import { sectionAnchor } from "../about/shared"
 import { areaAnchor, findAnchor, parksInArea } from "./shared"
 
@@ -21,18 +28,18 @@ export function VillageFindAPark() {
             title="Find a park"
             description="Pick a part of town to jump straight to its parks."
           />
-          <ul
-            aria-label="Park areas"
-            className="mt-6 flex flex-wrap gap-2.5 sm:gap-3"
-          >
+          <ul aria-label="Park areas" className={cn(jumpList, "mt-6")}>
             {parkAreas.map((area, index) => {
               const count = parksInArea(area.id).length
               return (
-                <li key={area.id}>
+                <li key={area.id} className={jumpItem(index, parkAreas.length)}>
                   <PillLink
                     href={`#${areaAnchor(area.id)}`}
                     tone={index === 0 ? "primary" : "secondary"}
-                    className="focus-visible:ring-offset-(--v-card)"
+                    className={cn(
+                      jumpPill,
+                      "focus-visible:ring-offset-(--v-card)"
+                    )}
                   >
                     {area.title}
                     <span className="sr-only">, </span>

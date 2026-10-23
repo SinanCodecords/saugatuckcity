@@ -71,15 +71,19 @@ export function AboutGovernment() {
           </caption>
           <thead className="bg-(--band) text-[11px] font-semibold tracking-[0.2em] text-(--ink) uppercase">
             <tr>
-              <th scope="col" className="px-3 py-3 sm:px-5">
+              <th scope="col" className="px-4 py-3 sm:px-5">
                 Name
               </th>
-              <th scope="col" className="px-3 py-3 sm:px-5">
+              {/* Below sm the role sits under each name, so the table never squeezes into three cramped columns */}
+              <th
+                scope="col"
+                className="hidden px-3 py-3 sm:table-cell sm:px-5"
+              >
                 Role
               </th>
               <th
                 scope="col"
-                className="px-3 py-3 text-right whitespace-nowrap sm:px-5"
+                className="px-4 py-3 text-right whitespace-nowrap sm:px-5"
               >
                 Term ends
               </th>
@@ -88,26 +92,33 @@ export function AboutGovernment() {
           <tbody className="divide-y divide-(--rule) border-t border-(--rule)">
             {council.map((member) => {
               const isOfficer = member.role !== "Council Member"
+              const role = (
+                <span
+                  className={
+                    isOfficer
+                      ? "inline-block rounded-sm bg-(--blue-pale) px-2 py-0.5 text-xs font-semibold whitespace-nowrap text-(--blue-text)"
+                      : "text-(--body)"
+                  }
+                >
+                  {member.role}
+                </span>
+              )
               return (
                 <tr key={member.name}>
                   <th
                     scope="row"
-                    className="px-3 py-3 font-semibold text-(--ink) sm:px-5"
+                    className="px-4 py-3 font-semibold text-(--ink) sm:px-5"
                   >
                     {member.name}
-                  </th>
-                  <td className="px-3 py-3 sm:px-5">
-                    <span
-                      className={
-                        isOfficer
-                          ? "inline-block rounded-sm bg-(--blue-pale) px-2 py-0.5 text-xs font-semibold text-(--blue-text)"
-                          : "text-(--body)"
-                      }
-                    >
-                      {member.role}
+                    <span className="mt-1 block font-normal sm:hidden">
+                      <span className="sr-only">, </span>
+                      {role}
                     </span>
+                  </th>
+                  <td className="hidden px-3 py-3 sm:table-cell sm:px-5">
+                    {role}
                   </td>
-                  <td className="px-3 py-3 text-right whitespace-nowrap text-(--body) tabular-nums sm:px-5">
+                  <td className="px-4 py-3 text-right align-top whitespace-nowrap text-(--body) tabular-nums sm:px-5 sm:align-middle">
                     {member.termEnds}
                   </td>
                 </tr>

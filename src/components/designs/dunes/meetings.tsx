@@ -18,7 +18,7 @@ export function DunesMeetings() {
       aria-labelledby="meetings-heading"
       className="bg-(--dn-ink) text-(--dn-cream-on-dark)"
     >
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-muted-on-dark) uppercase">
@@ -33,7 +33,7 @@ export function DunesMeetings() {
           </div>
           <Link
             href="#"
-            className="group inline-flex items-center gap-1.5 self-start rounded-sm text-sm font-medium text-(--dn-cream-on-dark) transition-colors hover:text-(--dn-muted-on-dark) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-cream-on-dark) sm:self-auto"
+            className="group inline-flex shrink-0 items-center gap-1.5 self-start rounded-sm py-1 text-sm font-medium text-(--dn-cream-on-dark) transition-colors hover:text-(--dn-muted-on-dark) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-cream-on-dark) sm:self-auto"
           >
             Full calendar
             <ArrowRight
@@ -44,7 +44,7 @@ export function DunesMeetings() {
           </Link>
         </div>
 
-        <ol className="mt-12 grid grid-cols-1 gap-x-8 border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-8 grid grid-cols-1 gap-x-8 border-t border-white/15 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
           {meetings.map((meeting) => {
             const { day, month, weekday } = parts(meeting.date)
             return (
@@ -54,13 +54,13 @@ export function DunesMeetings() {
               >
                 <Link
                   href="#"
-                  className="group flex h-full flex-col rounded-sm py-8 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-cream-on-dark) lg:pt-10 lg:pb-4"
+                  className="group flex h-full flex-col rounded-sm py-7 sm:py-8 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-cream-on-dark) lg:pt-10 lg:pb-4"
                 >
                   <time
                     dateTime={meeting.date}
                     className="flex items-baseline gap-3"
                   >
-                    <span className="font-(family-name:--font-dunes-serif) text-7xl leading-none font-light tracking-[-0.03em] tabular-nums sm:text-8xl">
+                    <span className="font-(family-name:--font-dunes-serif) text-6xl leading-none font-light tracking-[-0.03em] tabular-nums sm:text-8xl">
                       {day}
                     </span>
                     <span className="flex flex-col text-[11px] tracking-[0.18em] text-(--dn-muted-on-dark) uppercase">
@@ -69,7 +69,7 @@ export function DunesMeetings() {
                     </span>
                   </time>
 
-                  <h3 className="mt-7 font-(family-name:--font-dunes-serif) text-[22px] leading-snug text-(--dn-cream-on-dark) transition-colors group-hover:text-(--dn-muted-on-dark)">
+                  <h3 className="mt-5 font-(family-name:--font-dunes-serif) sm:mt-7 text-[22px] leading-snug text-(--dn-cream-on-dark) transition-colors group-hover:text-(--dn-muted-on-dark)">
                     {meeting.title}
                   </h3>
 
@@ -94,7 +94,8 @@ export function DunesMeetings() {
                     </div>
                   </dl>
 
-                  <span className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-medium text-(--dn-cream-on-dark) opacity-70 transition-opacity group-hover:opacity-100">
+                  {/* Pinned to the bottom so the links line up across the row. */}
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-[13px] font-medium text-(--dn-cream-on-dark) opacity-70 transition-opacity group-hover:opacity-100">
                     Agenda &amp; packet
                     <ArrowRight
                       className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
@@ -108,12 +109,15 @@ export function DunesMeetings() {
           })}
         </ol>
 
-        <p className="mt-10 max-w-3xl border-t border-white/15 pt-6 text-sm leading-relaxed text-(--dn-muted-on-dark)">
-          All meetings are open to the public and held at City Hall, 102 Butler
-          Street. Agendas are posted at least 18 hours in advance. If you need
-          an accommodation to participate, contact the City Clerk at least two
-          business days before the meeting.
-        </p>
+        {/* Below lg every card already closes with a rule, so the note needs none of its own. */}
+        <div className="pt-7 sm:pt-8 lg:mt-10 lg:border-t lg:border-white/15 lg:pt-6">
+          <p className="max-w-3xl text-sm leading-relaxed text-(--dn-muted-on-dark)">
+            All meetings are open to the public and held at City Hall, 102
+            Butler Street. Agendas are posted at least 18 hours in advance. If
+            you need an accommodation to participate, contact the City Clerk at
+            least two business days before the meeting.
+          </p>
+        </div>
       </div>
     </section>
   )

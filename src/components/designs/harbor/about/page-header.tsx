@@ -33,7 +33,7 @@ export function AboutPageHeader() {
             <li className="flex items-center gap-1.5">
               <a
                 href={pageHref("harbor", "home")}
-                className="rounded underline decoration-white/40 underline-offset-4 transition-colors hover:text-white hover:decoration-(--gold) focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:outline-none"
+                className="inline-block rounded py-0.5 underline decoration-white/40 underline-offset-4 transition-colors hover:text-white hover:decoration-(--gold) focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:outline-none"
               >
                 Home
               </a>

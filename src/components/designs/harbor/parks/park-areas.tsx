@@ -2,6 +2,7 @@ import { Trees } from "lucide-react"
 
 import { parkAreas, parks } from "@/content/parks"
 
+import { balancedCell, balancedGrid } from "../card-grid"
 import { departmentAnchor } from "../departments/shared"
 import { parkAreaIcons } from "./icons"
 import { ParkCard } from "./park-card"
@@ -88,7 +89,7 @@ export function ParkAreas() {
                       />
                       {area.title}
                     </h2>
-                    <p className="mt-1 text-sm text-slate-600">
+                    <p className="mt-1 text-sm text-pretty text-slate-600">
                       {area.description}
                     </p>
                   </div>
@@ -97,9 +98,19 @@ export function ParkAreas() {
                   </p>
                 </div>
 
-                <ul className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-                  {area.parks.map((park) => (
-                    <li key={park.id}>
+                <ul
+                  className={`mt-6 gap-5 lg:gap-6 ${balancedGrid("md", "lg")}`}
+                >
+                  {area.parks.map((park, index) => (
+                    <li
+                      key={park.id}
+                      className={balancedCell(
+                        index,
+                        area.parks.length,
+                        "md",
+                        "lg"
+                      )}
+                    >
                       <ParkCard park={park} />
                     </li>
                   ))}

@@ -4,6 +4,8 @@ import { ArrowRight } from "lucide-react"
 
 import { formatDate, news } from "@/content/home"
 
+import { keepDashes } from "./about/shared"
+
 export function DunesNews() {
   const [feature, ...rest] = news
 
@@ -12,7 +14,7 @@ export function DunesNews() {
       aria-labelledby="news-heading"
       className="border-t border-(--dn-rule) bg-(--dn-bg-deep)/40"
     >
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-teal) uppercase">
@@ -27,7 +29,7 @@ export function DunesNews() {
           </div>
           <Link
             href="#"
-            className="group inline-flex items-center gap-1.5 self-start rounded-sm text-sm font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal) sm:self-auto"
+            className="group inline-flex shrink-0 items-center gap-1.5 self-start rounded-sm py-1 text-sm font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal) sm:self-auto"
           >
             All news
             <ArrowRight
@@ -38,14 +40,14 @@ export function DunesNews() {
           </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14">
+        <div className="mt-8 grid grid-cols-1 gap-12 sm:mt-10 lg:grid-cols-12 lg:gap-14">
           {/* Feature story */}
           <article className="lg:col-span-7">
             <Link
               href="#"
               className="group block rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal)"
             >
-              <div className="relative aspect-3/2 overflow-hidden rounded-sm bg-(--dn-bg-deep)">
+              <div className="relative aspect-3/2 overflow-hidden rounded-sm bg-(--dn-bg-deep) sm:aspect-16/9 lg:aspect-3/2">
                 <Image
                   src={feature.image}
                   alt="Sailboats moored along the Kalamazoo River harbor in Saugatuck"
@@ -66,7 +68,7 @@ export function DunesNews() {
                 </time>
               </div>
               <h3 className="mt-3 font-(family-name:--font-dunes-serif) text-3xl leading-[1.15] text-balance text-(--dn-ink) transition-colors group-hover:text-(--dn-teal) sm:text-4xl">
-                {feature.title}
+                {keepDashes(feature.title)}
               </h3>
               <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-(--dn-ink-soft)">
                 {feature.excerpt}

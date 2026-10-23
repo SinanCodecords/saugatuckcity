@@ -42,7 +42,13 @@ export function DunesBoardsDirectory() {
               </div>
 
               {isPast ? (
-                <ul className="mt-8 grid grid-cols-1 border-t border-(--dn-ink) sm:grid-cols-2 sm:gap-x-12 lg:mt-12">
+                /* Reads down the first column, then the second, so an odd count never strands one card on the right. */
+                <ul
+                  className="mt-8 grid grid-cols-1 border-t border-(--dn-ink) sm:grid-flow-col sm:grid-cols-2 sm:gap-x-12 lg:mt-12"
+                  style={{
+                    gridTemplateRows: `repeat(${Math.ceil(group.boards.length / 2)}, auto)`,
+                  }}
+                >
                   {group.boards.map((board) => (
                     <li key={board.id} className="border-b border-(--dn-rule)">
                       <DunesPastCommitteeEntry board={board} />
@@ -50,7 +56,8 @@ export function DunesBoardsDirectory() {
                   ))}
                 </ul>
               ) : (
-                <ul className="mt-8 border-t border-(--dn-ink) lg:mt-12">
+                /* The next section's top rule closes the last entry. */
+                <ul className="mt-8 border-t border-(--dn-ink) lg:mt-12 [&>li:last-child>article]:border-b-0 [&>li:last-child>article]:pb-0">
                   {group.boards.map((board) => (
                     <li key={board.id}>
                       <DunesBoardEntry board={board} />

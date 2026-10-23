@@ -1,5 +1,6 @@
 import { boardGroups, boards, type Board } from "@/content/boards"
 
+import { balancedCell, balancedGrid } from "../card-grid"
 import { BoardCard, PastBoardCard } from "./board-card"
 import { boardGroupIcons } from "./icons"
 
@@ -45,7 +46,7 @@ export function BoardGroups() {
                     />
                     {group.title}
                   </h2>
-                  <p className="mt-1 text-sm text-slate-600">
+                  <p className="mt-1 text-sm text-pretty text-slate-600">
                     {group.description}
                   </p>
                 </div>
@@ -55,17 +56,35 @@ export function BoardGroups() {
               </div>
 
               {isPast ? (
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {members.map((board) => (
-                    <li key={board.id}>
+                <ul className={`mt-6 gap-3 ${balancedGrid("sm", "lg")}`}>
+                  {members.map((board, index) => (
+                    <li
+                      key={board.id}
+                      className={balancedCell(
+                        index,
+                        members.length,
+                        "sm",
+                        "lg"
+                      )}
+                    >
                       <PastBoardCard board={board} />
                     </li>
                   ))}
                 </ul>
               ) : (
-                <ul className="mt-6 grid gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
-                  {members.map((board) => (
-                    <li key={board.id}>
+                <ul
+                  className={`mt-6 gap-5 lg:gap-6 ${balancedGrid("md", "xl")}`}
+                >
+                  {members.map((board, index) => (
+                    <li
+                      key={board.id}
+                      className={balancedCell(
+                        index,
+                        members.length,
+                        "md",
+                        "xl"
+                      )}
+                    >
                       <BoardCard board={board} />
                     </li>
                   ))}

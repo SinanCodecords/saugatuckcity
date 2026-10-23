@@ -12,7 +12,7 @@ import {
 import { MobileNav } from "./mobile-nav"
 
 const utilityLink =
-  "inline-flex items-center gap-1.5 rounded px-1 py-0.5 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--gold)"
+  "inline-flex items-center gap-1.5 rounded px-1 py-1 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--gold)"
 
 export function SiteHeader({ current }: { current: SitePage }) {
   return (

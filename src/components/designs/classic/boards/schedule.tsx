@@ -1,4 +1,6 @@
-import { SectionHeading } from "../about/ui"
+import { CalendarClock, MapPin } from "lucide-react"
+
+import { keepTimes, SectionHeading } from "../about/ui"
 import { boardIcons, fallbackBoardIcon } from "./icons"
 import { countLabel, scheduledBoards, scheduleId } from "./utils"
 
@@ -17,14 +19,55 @@ export function MeetingSchedule() {
         Meeting schedule at a glance
       </SectionHeading>
 
-      {/* Narrow screens scroll the table inside this box, never the page */}
-      <div
-        role="region"
-        aria-labelledby={titleId}
-        tabIndex={0}
-        className="mt-6 overflow-x-auto rounded-md border border-(--rule) bg-white focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
-      >
-        <table className="w-full min-w-[34rem] border-collapse text-left text-sm">
+      {/* Phones: one stacked row per board, so nothing is hidden behind a sideways scroll */}
+      <ul className="mt-6 divide-y divide-(--rule) overflow-hidden rounded-md border border-(--rule) bg-white sm:hidden">
+        {scheduledBoards.map((board) => {
+          const Icon = boardIcons[board.icon] ?? fallbackBoardIcon
+          return (
+            <li key={board.id} className="flex gap-3 px-4 py-3.5">
+              <Icon
+                aria-hidden="true"
+                className="mt-0.5 size-4 shrink-0 text-(--blue)"
+              />
+              <div className="min-w-0 flex-1 text-sm">
+                <a
+                  href={`#${board.id}`}
+                  className="inline-block py-0.5 font-semibold text-(--ink) hover:text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
+                >
+                  {board.name}
+                </a>
+                <dl className="mt-1 space-y-1 text-(--body)">
+                  <div className="flex gap-2">
+                    <dt className="shrink-0">
+                      <CalendarClock
+                        aria-hidden="true"
+                        className="mt-0.5 size-3.5 text-(--muted)"
+                      />
+                      <span className="sr-only">When</span>
+                    </dt>
+                    <dd className="min-w-0">{keepTimes(board.meets ?? "")}</dd>
+                  </div>
+                  <div className="flex gap-2">
+                    <dt className="shrink-0">
+                      <MapPin
+                        aria-hidden="true"
+                        className="mt-0.5 size-3.5 text-(--muted)"
+                      />
+                      <span className="sr-only">Where</span>
+                    </dt>
+                    <dd className="min-w-0">
+                      {board.where ?? "To be announced"}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </li>
+          )
+        })}
+      </ul>
+
+      <div className="mt-6 hidden overflow-hidden rounded-md border border-(--rule) bg-white sm:block">
+        <table className="w-full border-collapse text-left text-sm">
           <caption className="sr-only">
             Regular meeting times and places for each board. Select a board to
             jump to its details.
@@ -50,7 +93,7 @@ export function MeetingSchedule() {
                   <th scope="row" className={`${cellClass} font-semibold`}>
                     <a
                       href={`#${board.id}`}
-                      className="group inline-flex items-start gap-2.5 text-(--ink) hover:text-(--blue-text) focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
+                      className="group -my-0.5 inline-flex items-start gap-2.5 py-0.5 text-(--ink) hover:text-(--blue-text) focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
                     >
                       <Icon
                         aria-hidden="true"
@@ -61,8 +104,8 @@ export function MeetingSchedule() {
                       </span>
                     </a>
                   </th>
-                  <td className={`${cellClass} text-(--body)`}>
-                    {board.meets}
+                  <td className={`${cellClass} text-pretty text-(--body)`}>
+                    {keepTimes(board.meets ?? "")}
                   </td>
                   <td className={`${cellClass} text-(--body)`}>
                     {board.where ?? "To be announced"}

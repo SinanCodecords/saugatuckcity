@@ -5,7 +5,10 @@ import { container, kicker, serif } from "./shared"
 
 export function DunesAboutIntro() {
   return (
-    <section aria-labelledby="dn-about-intro" className="pb-16 lg:pb-24">
+    <section
+      aria-labelledby="dn-about-intro"
+      className="pb-12 sm:pb-16 lg:pb-24"
+    >
       <div
         className={`${container} grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10`}
       >
@@ -40,7 +43,10 @@ export function DunesAboutIntro() {
 
 export function DunesAboutFacts() {
   return (
-    <section aria-labelledby="dn-about-facts" className="pb-16 lg:pb-24">
+    <section
+      aria-labelledby="dn-about-facts"
+      className="pb-14 sm:pb-16 lg:pb-24"
+    >
       <div className={container}>
         <h2 id="dn-about-facts" className={kicker}>
           At a glance

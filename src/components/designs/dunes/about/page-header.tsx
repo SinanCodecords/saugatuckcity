@@ -1,11 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowDown } from "lucide-react"
 
 import { aboutImages, aboutIntro } from "@/content/about"
 import { pageHref } from "@/content/home"
 
-import { container, focusRing, kicker, serif } from "./shared"
+import { breadcrumbLink, container, JumpNav, kicker, serif } from "./shared"
 
 const inThisFeature = [
   { label: "Government", href: "#government" },
@@ -15,15 +14,12 @@ const inThisFeature = [
 
 export function DunesAboutHeader() {
   return (
-    <header className="pt-8 pb-14 lg:pt-12 lg:pb-20">
+    <header className="pt-7 pb-14 lg:pt-11 lg:pb-20">
       <div className={container}>
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.18em] text-(--dn-ink-soft) uppercase">
             <li className="flex items-center gap-2">
-              <Link
-                href={pageHref("dunes", "home")}
-                className={`rounded-sm underline decoration-(--dn-rule) underline-offset-4 transition-colors hover:text-(--dn-teal) hover:decoration-(--dn-teal) ${focusRing}`}
-              >
+              <Link href={pageHref("dunes", "home")} className={breadcrumbLink}>
                 Home
               </Link>
               <span aria-hidden="true" className="text-(--dn-terra)">
@@ -38,7 +34,9 @@ export function DunesAboutHeader() {
           </ol>
         </nav>
 
-        <p className={`mt-12 lg:mt-16 ${kicker}`}>The City · A feature</p>
+        <p className={`mt-10 sm:mt-12 lg:mt-16 ${kicker}`}>
+          The City · A feature
+        </p>
         <h1
           id="dn-about-heading"
           className={`mt-5 ${serif} text-[3.25rem] leading-[0.98] font-light tracking-[-0.03em] text-balance sm:text-7xl lg:text-8xl xl:text-[8.5rem]`}
@@ -53,39 +51,16 @@ export function DunesAboutHeader() {
             {aboutIntro.lead}
           </p>
 
-          <nav
-            aria-labelledby="dn-about-contents"
-            className="lg:col-span-3 lg:col-start-10"
-          >
-            <p
-              id="dn-about-contents"
-              className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-ink-soft) uppercase"
-            >
-              In this feature
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 lg:flex-col">
-              {inThisFeature.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`group inline-flex items-center gap-1.5 rounded-sm text-[15px] font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) ${focusRing}`}
-                  >
-                    {item.label}
-                    <ArrowDown
-                      className="size-3.5 text-(--dn-terra) transition-transform duration-200 group-hover:translate-y-0.5"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <JumpNav
+            id="dn-about-contents"
+            label="In this feature"
+            items={inThisFeature}
+          />
         </div>
       </div>
 
       {/* Wide photograph */}
-      <figure className="mx-auto mt-12 w-full max-w-[96rem] sm:px-8 lg:mt-16">
+      <figure className="mx-auto mt-10 w-full max-w-[96rem] sm:mt-12 sm:px-8 lg:mt-16">
         <div className="relative aspect-4/3 overflow-hidden bg-(--dn-bg-deep) sm:aspect-2/1 sm:rounded-sm lg:aspect-21/9">
           <Image
             src={aboutImages.banner}

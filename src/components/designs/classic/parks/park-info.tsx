@@ -108,11 +108,11 @@ function Callout({
     >
       <h2
         id={id}
-        className="flex items-center gap-2.5 text-xl font-semibold tracking-tight text-(--ink)"
+        className="flex items-start gap-2.5 text-xl font-semibold tracking-tight text-balance text-(--ink)"
       >
         <Icon
           aria-hidden="true"
-          className="size-5 shrink-0 text-(--blue-text)"
+          className="mt-1 size-5 shrink-0 text-(--blue-text)"
         />
         {title}
       </h2>

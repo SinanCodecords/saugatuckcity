@@ -25,7 +25,7 @@ export function VillageAboutHistory() {
               title="From village to city"
               description={`A few moments that shaped Saugatuck, ${first} to ${last}.`}
             />
-            <div className="relative mt-8 hidden aspect-[4/3] overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] sm:block">
+            <div className="relative mt-8 hidden aspect-[5/2] overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] sm:block lg:aspect-[4/3]">
               <Image
                 src={aboutImages.history}
                 alt="Autumn trees reflected in still water"

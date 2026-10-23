@@ -28,7 +28,7 @@ export function Departments() {
             </p>
             <a
               href={departmentsHref}
-              className="mt-3 inline-flex items-center gap-1 rounded text-sm font-medium text-(--navy) underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
+              className="mt-2 inline-flex items-center gap-1 rounded py-1 text-sm font-medium text-(--navy) underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
             >
               Staff directory
               <ArrowRight aria-hidden="true" className="size-4" />

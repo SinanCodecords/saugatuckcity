@@ -18,7 +18,7 @@ export function ParkEvents() {
         <div className="min-w-0">
           <h2
             id="harbor-park-events-heading"
-            className="text-2xl font-semibold tracking-tight text-(--navy)"
+            className="text-xl font-semibold tracking-tight text-(--navy) sm:text-2xl"
           >
             Events in the parks
           </h2>

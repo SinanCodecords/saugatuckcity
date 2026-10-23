@@ -23,7 +23,7 @@ function PastCommittee({ board }: { board: Board }) {
           <h3 className="text-sm leading-snug font-semibold text-(--body)">
             {board.name}
           </h3>
-          <span className="rounded-sm border border-(--rule) bg-(--band) px-1.5 py-0.5 text-[10px] leading-none font-semibold tracking-[0.15em] text-(--muted) uppercase">
+          <span className="rounded-sm border border-(--rule) bg-(--band) px-1.5 py-1 text-[11px] leading-none font-semibold tracking-[0.12em] text-(--muted) uppercase">
             Concluded
           </span>
         </div>
@@ -63,7 +63,7 @@ export function BoardGroups() {
             >
               {group.title}
             </SectionHeading>
-            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-(--body)">
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty text-(--body)">
               {group.description}
             </p>
 

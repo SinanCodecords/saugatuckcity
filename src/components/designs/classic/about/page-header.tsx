@@ -16,7 +16,7 @@ export function AboutPageHeader() {
           fill
           preload
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[center_78%]"
         />
         <div
           aria-hidden="true"
@@ -32,7 +32,7 @@ export function AboutPageHeader() {
               <li className="flex items-center gap-2">
                 <Link
                   href={pageHref("classic", "home")}
-                  className="text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
+                  className="inline-block py-1 text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
                 >
                   Home
                 </Link>
@@ -55,7 +55,7 @@ export function AboutPageHeader() {
           >
             {aboutIntro.title}
           </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-(--body)">
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-pretty text-(--body)">
             {aboutIntro.lead}
           </p>
         </div>

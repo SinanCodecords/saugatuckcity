@@ -2,7 +2,7 @@ import { CalendarClock, ExternalLink, MapPin, UsersRound } from "lucide-react"
 
 import type { Board } from "@/content/boards"
 
-import { textLink } from "../about/ui"
+import { keepTimes, textLink } from "../about/ui"
 import { SubHeading, websiteLabel } from "../departments/department-panel"
 import { boardIcons, fallbackBoardIcon } from "./icons"
 
@@ -31,7 +31,7 @@ export function BoardPanel({ board }: { board: Board }) {
         </span>
         <h3
           id={titleId}
-          className="min-w-0 text-base leading-snug font-semibold text-(--ink) sm:text-lg"
+          className="min-w-0 text-base leading-snug font-semibold text-balance text-(--ink) sm:text-lg"
         >
           {name}
         </h3>
@@ -64,7 +64,9 @@ export function BoardPanel({ board }: { board: Board }) {
                       />
                       <div className="min-w-0">
                         <dt className="sr-only">{detail.label}</dt>
-                        <dd className="text-(--body)">{detail.value}</dd>
+                        <dd className="text-(--body)">
+                          {keepTimes(detail.value ?? "")}
+                        </dd>
                       </div>
                     </div>
                   ))}

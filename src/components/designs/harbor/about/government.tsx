@@ -68,8 +68,8 @@ export function Government() {
 
           {/* City Council roster */}
           <div className="mt-10">
-            <div className="flex items-end justify-between gap-4 border-b-2 border-(--navy) pb-3">
-              <h3 className="flex items-center gap-2 text-lg font-semibold tracking-tight text-(--navy)">
+            <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-1 border-b-2 border-(--navy) pb-3">
+              <h3 className="flex items-center gap-2 text-lg font-semibold tracking-tight whitespace-nowrap text-(--navy)">
                 <Users aria-hidden="true" className="size-5 text-(--gold)" />
                 City Council
               </h3>

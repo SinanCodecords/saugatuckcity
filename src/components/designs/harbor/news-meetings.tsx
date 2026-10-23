@@ -20,13 +20,13 @@ function MeetingDate({ iso }: { iso: string }) {
       dateTime={iso}
       className="flex w-14 shrink-0 flex-col items-center justify-center rounded-md border border-slate-200 bg-white py-1.5 text-center leading-none shadow-sm"
     >
-      <span className="text-[10px] font-bold tracking-wider text-(--navy) uppercase">
+      <span className="text-xs font-bold tracking-wide text-(--navy) uppercase">
         {month}
       </span>
       <span className="mt-0.5 text-2xl font-semibold text-slate-900">
         {day}
       </span>
-      <span className="mt-0.5 text-[10px] font-medium text-slate-500 uppercase">
+      <span className="mt-0.5 text-xs font-medium text-slate-600 uppercase">
         {weekday}
       </span>
     </time>
@@ -51,7 +51,7 @@ export function NewsAndMeetings() {
             </h2>
             <a
               href="#"
-              className="inline-flex items-center gap-1 rounded text-sm font-medium text-(--navy) underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
+              className="-my-1 inline-flex items-center gap-1 rounded py-1 text-sm font-medium text-(--navy) underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
             >
               All news
               <ArrowRight aria-hidden="true" className="size-4" />
@@ -66,7 +66,7 @@ export function NewsAndMeetings() {
                     href="#"
                     tabIndex={-1}
                     aria-hidden="true"
-                    className="relative block aspect-[16/10] overflow-hidden rounded-md bg-slate-100 sm:aspect-[4/3]"
+                    className="relative block aspect-[16/9] overflow-hidden rounded-md bg-slate-100 sm:aspect-[4/3]"
                   >
                     <Image
                       src={item.image}
@@ -119,12 +119,15 @@ export function NewsAndMeetings() {
               </h2>
             </div>
 
-            <ul className="divide-y divide-slate-200">
+            <ul className="grid gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-1">
               {meetings.map((meeting) => (
-                <li key={`${meeting.title}-${meeting.date}`}>
+                <li
+                  key={`${meeting.title}-${meeting.date}`}
+                  className="bg-slate-50"
+                >
                   <a
                     href="#"
-                    className="group flex gap-4 px-5 py-4 transition-colors hover:bg-white focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none focus-visible:ring-inset"
+                    className="group flex h-full gap-4 px-5 py-4 transition-colors hover:bg-white focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none focus-visible:ring-inset"
                   >
                     <MeetingDate iso={meeting.date} />
                     <div className="min-w-0">

@@ -13,9 +13,9 @@ export function DunesHero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="mx-auto w-full max-w-7xl px-5 pt-12 pb-16 sm:px-8 lg:pt-20 lg:pb-24"
+      className="mx-auto w-full max-w-7xl px-5 pt-10 pb-14 sm:px-8 sm:pt-12 sm:pb-16 lg:pt-20 lg:pb-24"
     >
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-end lg:gap-10">
+      <div className="grid grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
         {/* Copy */}
         <div className="lg:col-span-7">
           <p className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-teal) uppercase">
@@ -34,7 +34,7 @@ export function DunesHero() {
             or have your say.
           </p>
 
-          <ul className="mt-9 flex flex-col gap-4 sm:flex-row sm:gap-9">
+          <ul className="mt-8 flex flex-col items-start gap-4 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-x-9">
             {ctas.map((cta) => (
               <li key={cta.label}>
                 <Link
@@ -55,18 +55,19 @@ export function DunesHero() {
 
         {/* Portrait photo with offset frame */}
         <div className="lg:col-span-5">
-          <figure className="relative mx-auto max-w-md lg:ml-auto lg:max-w-none">
+          {/* Portrait beside the copy on desktop; a wide crop under it on tablets. */}
+          <figure className="relative mr-3 sm:mr-4 lg:mr-0">
             <div
               aria-hidden="true"
               className="absolute -top-3 -right-3 h-full w-full rounded-sm border border-(--dn-terra) sm:-top-4 sm:-right-4"
             />
-            <div className="relative aspect-4/5 overflow-hidden rounded-sm bg-(--dn-bg-deep)">
+            <div className="relative aspect-4/5 overflow-hidden rounded-sm bg-(--dn-bg-deep) sm:aspect-16/9 lg:aspect-4/5">
               <Image
                 src={heroImages.dunes}
                 alt="Grass-topped sand dunes above Lake Michigan near Saugatuck under a soft sky"
                 fill
                 priority
-                sizes="(min-width: 1024px) 40vw, (min-width: 640px) 28rem, 100vw"
+                sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
               />
             </div>

@@ -11,7 +11,7 @@ import {
 
 import type { Department } from "@/content/departments"
 
-import { inlineLink, textLink } from "../about/ui"
+import { inlineLink, keepTimes, textLink } from "../about/ui"
 import { departmentIcons, fallbackDepartmentIcon } from "./icons"
 import { telHref } from "./utils"
 
@@ -28,7 +28,7 @@ export function PhoneLink({ phone, who }: { phone: string; who: string }) {
     <a
       href={telHref(phone)}
       aria-label={`Call ${who} at ${phone}`}
-      className={`${inlineLink} inline-flex items-center gap-1.5 text-(--blue-text) tabular-nums`}
+      className={`${inlineLink} inline-flex items-center gap-1.5 py-0.5 text-(--blue-text) tabular-nums`}
     >
       <Phone aria-hidden="true" className="size-3.5 shrink-0" />
       {phone}
@@ -59,7 +59,7 @@ export function DepartmentPanel({ department }: { department: Department }) {
         </span>
         <h3
           id={titleId}
-          className="min-w-0 text-base leading-snug font-semibold text-(--ink) sm:text-lg"
+          className="min-w-0 text-base leading-snug font-semibold text-balance text-(--ink) sm:text-lg"
         >
           {name}
         </h3>
@@ -138,7 +138,7 @@ export function DepartmentPanel({ department }: { department: Department }) {
                       aria-hidden="true"
                       className="mt-0.5 size-4 shrink-0 text-(--blue)"
                     />
-                    <span>{location.hours}</span>
+                    <span>{keepTimes(location.hours)}</span>
                   </p>
                 ) : null}
                 {location.phone ? (

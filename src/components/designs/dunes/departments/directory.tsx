@@ -1,6 +1,6 @@
 import { departmentDirectory, departmentGroups } from "@/content/departments"
 
-import { container, SectionHeading } from "../about/shared"
+import { container, Phrases, SectionHeading } from "../about/shared"
 import { DunesDepartmentEntry } from "./entry"
 
 const partLabels = ["Part one", "Part two", "Part three"]
@@ -40,13 +40,14 @@ export function DunesDepartmentsDirectory() {
                   />
                 </div>
                 <p className="max-w-md text-[15px] leading-relaxed text-(--dn-ink-soft) lg:col-span-4 lg:col-start-9">
-                  {group.description}
+                  <Phrases text={group.description} separator=" · " />
                 </p>
               </div>
 
+              {/* The section's own top rule closes the last entry, so it drops its bottom rule. */}
               <ol
                 start={group.departments[0]?.number}
-                className="mt-8 border-t border-(--dn-ink) lg:mt-12"
+                className="mt-8 border-t border-(--dn-ink) lg:mt-12 [&>li:last-child>article]:border-b-0 [&>li:last-child>article]:pb-0"
               >
                 {group.departments.map(({ department, number }) => (
                   <li key={department.id}>

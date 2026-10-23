@@ -39,13 +39,14 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col items-center px-4 py-12 text-center sm:px-6 lg:px-8">
         <ClassicLogo size="sm" />
 
-        <nav aria-label="Footer" className="mt-8">
-          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+        {/* Tablets get an even four-by-two grid instead of a six-and-two wrap */}
+        <nav aria-label="Footer" className="mt-6 w-full">
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 md:grid md:grid-cols-[repeat(4,auto)] md:gap-x-10 lg:flex lg:gap-x-5">
             {mainNav.map((item) => (
               <li key={item.label}>
                 <a
                   href={navHref("classic", item)}
-                  className={`${footerLink} text-[11px] font-semibold tracking-[0.18em] uppercase`}
+                  className={`${footerLink} inline-block py-2 text-[11px] font-semibold tracking-[0.18em] uppercase`}
                 >
                   {item.label}
                 </a>
@@ -54,16 +55,22 @@ export function SiteFooter() {
           </ul>
         </nav>
 
-        <p className="mt-8 text-sm text-(--body)">
+        <p className="mt-6 flex flex-col items-center gap-0.5 text-sm text-(--body) sm:block">
           <span className="font-semibold text-(--ink)">{siteConfig.name}</span>
-          <span aria-hidden="true" className="mx-2 text-(--muted)">
+          <span
+            aria-hidden="true"
+            className="mx-2 hidden text-(--muted) sm:inline"
+          >
             &middot;
           </span>
-          {siteConfig.contact.address}
-          <span aria-hidden="true" className="mx-2 text-(--muted)">
+          <span className="text-balance">{siteConfig.contact.address}</span>
+          <span
+            aria-hidden="true"
+            className="mx-2 hidden text-(--muted) sm:inline"
+          >
             &middot;
           </span>
-          <a href="#" className={footerLink}>
+          <a href="#" className={`${footerLink} inline-block py-0.5`}>
             {siteConfig.contact.phone}
           </a>
         </p>
@@ -97,21 +104,29 @@ export function SiteFooter() {
             The City of Saugatuck is committed to providing a website that is
             accessible to everyone. If you have difficulty using any part of
             this site, please{" "}
-            <a href="#" className={footerLink}>
+            <a
+              href="#"
+              className={`${footerLink} underline underline-offset-2`}
+            >
               contact City Hall
             </a>{" "}
             or review our{" "}
-            <a href="#" className={footerLink}>
+            <a
+              href="#"
+              className={`${footerLink} underline underline-offset-2`}
+            >
               accessibility statement
             </a>
             .
           </p>
-          <p className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-            <span>&copy; 2026 City of Saugatuck, Michigan</span>
-            <a href="#" className={footerLink}>
+          <p className="mt-3 flex flex-wrap items-center justify-center gap-x-4">
+            <span className="basis-full py-1 sm:basis-auto">
+              &copy; 2026 City of Saugatuck, Michigan
+            </span>
+            <a href="#" className={`${footerLink} py-1`}>
               Privacy
             </a>
-            <a href="#" className={footerLink}>
+            <a href="#" className={`${footerLink} py-1`}>
               Site map
             </a>
           </p>

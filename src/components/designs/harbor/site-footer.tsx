@@ -26,9 +26,9 @@ export function SiteFooter() {
     <footer className="bg-(--navy) text-slate-200">
       <div aria-hidden="true" className="h-1 bg-(--gold)" />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="grid gap-10 sm:grid-cols-3 sm:gap-8 xl:grid-cols-4">
           {/* Contact */}
-          <div>
+          <div className="sm:col-span-3 xl:col-span-1">
             <div className="flex items-center gap-3">
               <span
                 aria-hidden="true"
@@ -45,7 +45,7 @@ export function SiteFooter() {
                 </span>
               </p>
             </div>
-            <address className="mt-5 space-y-3 text-sm not-italic">
+            <address className="mt-5 space-y-3 text-sm not-italic sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3 sm:space-y-0 xl:block xl:space-y-3">
               <p className="flex gap-2.5">
                 <MapPin
                   aria-hidden="true"
@@ -168,14 +168,14 @@ export function SiteFooter() {
             </a>
             .
           </p>
-          <div className="mt-6 flex flex-col gap-3 text-xs text-slate-300 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-2 text-xs text-slate-300 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
             <p>&copy; 2026 City of Saugatuck, Michigan. All rights reserved.</p>
-            <ul className="flex flex-wrap gap-x-5 gap-y-1">
+            <ul className="-mx-1 flex flex-wrap gap-x-3">
               {legalLinks.map((label) => (
                 <li key={label}>
                   <a
                     href="#"
-                    className="rounded text-slate-300 hover:text-white hover:underline focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:outline-none"
+                    className="inline-block rounded px-1 py-1 text-slate-300 hover:text-white hover:underline focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:outline-none"
                   >
                     {label}
                   </a>

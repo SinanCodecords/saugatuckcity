@@ -26,7 +26,7 @@ export function DunesDepartmentsContactIndex() {
 
         {/* Reads down the first column, then the second, on desktop. */}
         <ul
-          className="mt-8 grid grid-cols-1 border-t border-(--dn-ink) lg:mt-12 lg:grid-flow-col lg:grid-cols-2 lg:gap-x-12"
+          className="mt-8 grid grid-cols-1 border-t border-(--dn-ink) md:grid-flow-col md:grid-cols-2 md:gap-x-10 lg:mt-12 lg:gap-x-12"
           style={{ gridTemplateRows: `repeat(${rows}, auto)` }}
         >
           {commonTasks.map((item) => (
@@ -37,7 +37,7 @@ export function DunesDepartmentsContactIndex() {
               >
                 <span className="min-w-0">
                   <span
-                    className={`block ${serif} text-xl leading-snug text-(--dn-ink) transition-colors group-hover:text-(--dn-teal) sm:text-2xl`}
+                    className={`block ${serif} text-xl leading-snug text-(--dn-ink) transition-colors group-hover:text-(--dn-teal) sm:text-[22px] lg:text-2xl`}
                   >
                     {item.task}
                   </span>

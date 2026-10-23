@@ -27,7 +27,7 @@ export function DunesServices() {
       aria-labelledby="services-heading"
       className="border-t border-(--dn-rule)"
     >
-      <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-teal) uppercase">
@@ -42,7 +42,7 @@ export function DunesServices() {
           </div>
           <Link
             href="#"
-            className="group inline-flex items-center gap-1.5 self-start rounded-sm text-sm font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal) sm:self-auto"
+            className="group inline-flex shrink-0 items-center gap-1.5 self-start rounded-sm py-1 text-sm font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal) sm:self-auto"
           >
             All services
             <ArrowUpRight
@@ -53,7 +53,7 @@ export function DunesServices() {
           </Link>
         </div>
 
-        <ol className="mt-10 grid grid-cols-1 border-t border-(--dn-rule) sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-8 grid sm:mt-10 grid-cols-1 border-t border-(--dn-rule) sm:grid-cols-2 lg:grid-cols-3">
           {quickLinks.map((link, index) => {
             const Icon = icons[link.icon]
             const number = String(index + 1).padStart(2, "0")
@@ -64,7 +64,7 @@ export function DunesServices() {
               >
                 <Link
                   href="#"
-                  className="group flex h-full flex-col gap-6 px-1 py-7 transition-colors hover:bg-(--dn-bg-deep)/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-teal) sm:px-6 sm:py-8"
+                  className="group flex h-full flex-col gap-4 py-6 transition-colors hover:bg-(--dn-bg-deep)/60 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-teal) sm:gap-6 sm:px-6 sm:py-8"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-(family-name:--font-dunes-serif) text-sm text-(--dn-ink-soft) tabular-nums">
@@ -77,7 +77,7 @@ export function DunesServices() {
                     />
                   </div>
                   <div className="flex flex-1 flex-col">
-                    <span className="font-(family-name:--font-dunes-serif) text-2xl leading-snug text-(--dn-ink) transition-colors group-hover:text-(--dn-teal)">
+                    <span className="font-(family-name:--font-dunes-serif) text-[22px] leading-snug sm:text-2xl text-(--dn-ink) transition-colors group-hover:text-(--dn-teal)">
                       {link.label}
                     </span>
                     <span className="mt-2 text-[15px] leading-relaxed text-(--dn-ink-soft)">

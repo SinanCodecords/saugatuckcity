@@ -4,6 +4,15 @@ import { siteConfig } from "@/config/site"
 
 const { address, phone, hours } = siteConfig.contact
 
+// Set the address and hours as short postal-style lines so they break where a
+// person would, not wherever a narrow column runs out ("…5:00" / "pm").
+const addressParts = address.split(", ")
+const addressLines = [
+  ...addressParts.slice(0, 2),
+  addressParts.slice(2).join(", "),
+].filter(Boolean)
+const hoursLines = hours.split(", ")
+
 const telHref = `tel:+1${phone.replace(/\D/g, "")}`
 const directionsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`
 
@@ -19,7 +28,7 @@ export function VisitCityHall() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_12px_40px_-12px_rgba(11,37,69,0.25)]">
           <div aria-hidden="true" className="h-1 bg-(--gold)" />
-          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-12 lg:p-10">
+          <div className="grid gap-8 p-6 sm:p-8 lg:p-10 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-center xl:gap-12">
             <div className="min-w-0">
               <p className="flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-(--navy) uppercase">
                 <Building2
@@ -35,7 +44,7 @@ export function VisitCityHall() {
                 Visit City Hall
               </h2>
 
-              <address className="mt-6 grid gap-5 not-italic sm:grid-cols-3 sm:gap-6">
+              <address className="mt-6 grid gap-5 not-italic md:grid-cols-3 md:gap-6">
                 <div className="flex gap-3">
                   <span aria-hidden="true" className={iconChip}>
                     <MapPin className="size-5" />
@@ -45,7 +54,11 @@ export function VisitCityHall() {
                       Address
                     </p>
                     <p className="mt-1 text-sm leading-relaxed text-slate-900">
-                      {address}
+                      {addressLines.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
                     </p>
                   </div>
                 </div>
@@ -76,14 +89,18 @@ export function VisitCityHall() {
                       Hours
                     </p>
                     <p className="mt-1 text-sm leading-relaxed text-slate-900">
-                      {hours}
+                      {hoursLines.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
                     </p>
                   </div>
                 </div>
               </address>
             </div>
 
-            <div className="grid gap-2 sm:grid-cols-2 lg:w-56 lg:grid-cols-1">
+            <div className="grid gap-2 sm:grid-cols-2 xl:w-56 xl:grid-cols-1">
               <a
                 href={directionsHref}
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-(--navy) px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-(--navy-dark) focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:ring-offset-2 focus-visible:outline-none"

@@ -26,7 +26,7 @@ export function QuickLinks() {
             </div>
             <a
               href="#"
-              className="inline-flex items-center gap-1 rounded text-sm font-medium text-(--navy) underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
+              className="-my-1 inline-flex items-center gap-1 rounded py-1 text-sm font-medium text-(--navy) underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
             >
               All services
               <ArrowRight aria-hidden="true" className="size-4" />

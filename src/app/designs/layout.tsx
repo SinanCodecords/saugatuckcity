@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { DesignSwitcher } from "./design-switcher"
 
 export const metadata: Metadata = {
-  title: "Homepage designs",
+  title: "Website designs",
   robots: { index: false, follow: false },
 }
 

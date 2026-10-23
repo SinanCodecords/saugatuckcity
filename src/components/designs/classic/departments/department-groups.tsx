@@ -1,4 +1,4 @@
-import { SectionHeading } from "../about/ui"
+import { keepTimes, SectionHeading } from "../about/ui"
 import { DepartmentPanel } from "./department-panel"
 import { groupedDepartments, groupHeadingId } from "./utils"
 
@@ -14,8 +14,8 @@ export function DepartmentGroups() {
           >
             {group.title}
           </SectionHeading>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-(--body)">
-            {group.description}
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty text-(--body)">
+            {keepTimes(group.description)}
           </p>
 
           <ul className="mt-6 space-y-6">

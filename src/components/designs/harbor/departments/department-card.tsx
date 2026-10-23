@@ -30,7 +30,7 @@ function PhoneLink({ phone, who }: { phone: string; who: string }) {
     <a
       href={telHref(phone)}
       aria-label={`Call ${who} at ${phone}`}
-      className={`inline-flex items-center gap-1.5 text-sm whitespace-nowrap ${textLink}`}
+      className={`inline-flex items-center gap-1.5 py-0.5 text-sm whitespace-nowrap ${textLink}`}
     >
       <Phone aria-hidden="true" className="size-3.5 text-(--navy)" />
       {phone}
@@ -48,9 +48,9 @@ export function DepartmentCard({ department }: { department: Department }) {
     <article
       id={department.id}
       aria-labelledby={headingId}
-      className={`${departmentAnchor} flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm target:border-(--navy) target:ring-2 target:ring-(--gold)`}
+      className={`${departmentAnchor} flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm target:border-(--navy) target:ring-2 target:ring-(--gold) @4xl:flex-row`}
     >
-      <div className="flex-1 p-5 sm:p-6">
+      <div className="p-5 sm:p-6 @4xl:flex-1">
         <div className="flex items-start gap-4">
           <span
             aria-hidden="true"
@@ -108,7 +108,7 @@ export function DepartmentCard({ department }: { department: Department }) {
         ) : null}
       </div>
 
-      <div className="space-y-5 border-t border-slate-200 bg-slate-50 p-5 sm:px-6">
+      <div className="flex-1 space-y-5 border-t border-slate-200 bg-slate-50 p-5 sm:px-6 @4xl:w-96 @4xl:flex-none @4xl:border-t-0 @4xl:border-l @4xl:py-6">
         {location ? (
           <div className="flex gap-3">
             <span
@@ -152,7 +152,7 @@ export function DepartmentCard({ department }: { department: Department }) {
               {contacts.map((contact) => (
                 <li
                   key={contact.name}
-                  className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5 py-2.5 first:pt-0 last:pb-0"
+                  className="flex flex-col items-start gap-1 py-2.5 first:pt-0 last:pb-0 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-1.5"
                 >
                   <div className="flex min-w-0 items-center gap-3">
                     <span
@@ -169,7 +169,9 @@ export function DepartmentCard({ department }: { department: Department }) {
                     </div>
                   </div>
                   {contact.phone ? (
-                    <PhoneLink phone={contact.phone} who={contact.name} />
+                    <span className="pl-12 sm:pl-0">
+                      <PhoneLink phone={contact.phone} who={contact.name} />
+                    </span>
                   ) : null}
                 </li>
               ))}

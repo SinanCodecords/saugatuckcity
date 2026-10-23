@@ -16,7 +16,13 @@ import { siteConfig } from "@/config/site"
 import { parkAreas, parksImages, reservePark } from "@/content/parks"
 import { cn } from "@/lib/utils"
 
-import { Container, PillLink, heading } from "../shared"
+import {
+  Container,
+  PillLink,
+  heading,
+  masonryItem,
+  masonryList,
+} from "../shared"
 import { sectionAnchor } from "../about/shared"
 import { CallPill } from "../departments/call-pill"
 import { VillageParkCard } from "./park-card"
@@ -84,14 +90,15 @@ export function VillageParkArea({ area }: { area: Area }) {
           </div>
         </div>
 
-        <ul className="mt-8 grid gap-5 md:grid-cols-2">
+        {/* Masonry columns so short park cards are not stretched to match. */}
+        <ul className={masonryList}>
           {areaParks.map((park) => (
-            <li key={park.id}>
+            <li key={park.id} className={masonryItem}>
               <VillageParkCard park={park} />
             </li>
           ))}
           {areaParks.length % 2 === 1 ? (
-            <li className="hidden md:block">
+            <li className={cn(masonryItem, "hidden md:block")}>
               <FillerCard areaId={area.id} />
             </li>
           ) : null}
@@ -145,7 +152,7 @@ function FillerCard({ areaId }: { areaId: Area["id"] }) {
       : { src: parksImages.water, alt: "A sailboat out on open water" }
 
   return (
-    <div className="relative h-full min-h-72 overflow-hidden rounded-3xl shadow-[0_24px_50px_-26px_rgba(29,92,74,0.6)]">
+    <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-[0_24px_50px_-26px_rgba(29,92,74,0.6)]">
       <Image
         src={photo.src}
         alt={photo.alt}

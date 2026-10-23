@@ -28,7 +28,7 @@ export function MeetingSchedule() {
             <div className="min-w-0">
               <h2
                 id="harbor-schedule-heading"
-                className="text-2xl font-semibold tracking-tight text-(--navy)"
+                className="text-xl font-semibold tracking-tight text-(--navy) sm:text-2xl"
               >
                 Meeting schedule
               </h2>
@@ -67,11 +67,11 @@ export function MeetingSchedule() {
                   >
                     <th
                       scope="row"
-                      className={`${cell} w-[45%] text-left font-semibold sm:w-[38%]`}
+                      className={`${cell} w-[45%] text-left font-semibold sm:w-[34%] lg:w-[30%]`}
                     >
                       <a
                         href={`#${board.id}`}
-                        className="group inline-flex items-start gap-2.5 rounded text-slate-900 hover:text-(--navy) focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
+                        className="group -my-0.5 inline-flex items-start gap-2.5 rounded py-0.5 text-slate-900 hover:text-(--navy) focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
                       >
                         <span
                           aria-hidden="true"
@@ -82,7 +82,7 @@ export function MeetingSchedule() {
                         </span>
                       </a>
                     </th>
-                    <td className={`${cell} text-slate-700`}>
+                    <td className={`${cell} text-slate-700 lg:whitespace-nowrap`}>
                       {board.meets}
                       {board.where ? (
                         <span className="mt-1 block text-xs text-slate-600 sm:hidden">

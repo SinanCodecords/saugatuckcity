@@ -7,7 +7,7 @@ import { ClassicLogo } from "./logo"
 import { MobileNav } from "./mobile-nav"
 
 const stripLink =
-  "inline-flex items-center gap-1.5 rounded px-1 py-0.5 text-(--body) hover:text-(--blue-text) hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--blue)"
+  "inline-flex items-center gap-1.5 rounded px-1 py-1.5 text-(--body) hover:text-(--blue-text) hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--blue)"
 
 export function SiteHeader({ current }: { current: SitePage }) {
   return (
@@ -72,7 +72,7 @@ export function SiteHeader({ current }: { current: SitePage }) {
       {/* Nav row — sibling of <header> so sticky is not clipped by it */}
       <div className="sticky top-10 z-40 border-y border-(--rule) bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6 lg:justify-center lg:px-8 lg:py-0">
-          <span className="text-sm font-semibold tracking-[0.18em] text-(--nav) uppercase lg:hidden">
+          <span className="text-xs font-semibold tracking-[0.16em] whitespace-nowrap text-(--nav) uppercase min-[360px]:text-sm min-[360px]:tracking-[0.18em] lg:hidden">
             City of Saugatuck
           </span>
 
@@ -83,7 +83,7 @@ export function SiteHeader({ current }: { current: SitePage }) {
                   <a
                     href={navHref("classic", item)}
                     aria-current={item.page === current ? "page" : undefined}
-                    className="relative flex h-14 items-center px-3.5 text-sm font-semibold tracking-[0.18em] whitespace-nowrap text-(--nav) uppercase transition-colors hover:text-(--blue-text) focus-visible:text-(--blue-text) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none focus-visible:ring-inset aria-[current=page]:text-(--blue-text) aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3.5 aria-[current=page]:after:bottom-0 aria-[current=page]:after:h-0.5 aria-[current=page]:after:bg-(--blue) xl:px-5"
+                    className="relative flex h-14 items-center px-2.5 text-[13px] font-semibold tracking-[0.12em] whitespace-nowrap text-(--nav) uppercase transition-colors hover:text-(--blue-text) focus-visible:text-(--blue-text) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none focus-visible:ring-inset aria-[current=page]:text-(--blue-text) aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-1.5 aria-[current=page]:after:bottom-0 aria-[current=page]:after:h-0.5 aria-[current=page]:after:bg-(--blue) xl:px-5 xl:text-sm xl:tracking-[0.18em] xl:aria-[current=page]:after:inset-x-3.5"
                   >
                     {item.label}
                   </a>

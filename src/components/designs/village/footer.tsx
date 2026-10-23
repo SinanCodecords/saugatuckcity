@@ -12,6 +12,10 @@ const footerLink = cn(
   "inline-block rounded-md text-[0.95rem] text-white/80 transition-colors hover:text-white hover:underline focus-visible:ring-offset-(--v-primary)"
 )
 
+/** Link lists: the `py-1` on each link keeps rows at a comfortable touch height. */
+const linkList = "mt-3 flex flex-col gap-0.5"
+const listLink = cn(footerLink, "py-1 leading-snug")
+
 /** Derived from content rather than `new Date()` so the page stays fully static. */
 const copyrightYear = news[0].date.slice(0, 4)
 
@@ -28,8 +32,8 @@ export function VillageFooter() {
   return (
     <footer className="mt-8 bg-(--v-primary) text-white">
       <Container className="py-14 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:gap-x-10 lg:grid-cols-12 lg:gap-8">
+          <div className="col-span-2 md:col-span-1 lg:col-span-4">
             <a
               href="#"
               className={cn(
@@ -53,7 +57,7 @@ export function VillageFooter() {
             </p>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="col-span-2 md:col-span-1 lg:col-span-3">
             <h2
               className={cn(
                 heading,
@@ -89,7 +93,7 @@ export function VillageFooter() {
             </address>
           </div>
 
-          <nav aria-label="Footer" className="lg:col-span-2">
+          <nav aria-label="Footer" className="min-w-0 lg:col-span-2">
             <h2
               className={cn(
                 heading,
@@ -98,12 +102,12 @@ export function VillageFooter() {
             >
               Explore
             </h2>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className={linkList}>
               {mainNav
                 .filter((item) => item.label !== "Home")
                 .map((item) => (
                   <li key={item.label}>
-                    <a href={navHref("village", item)} className={footerLink}>
+                    <a href={navHref("village", item)} className={listLink}>
                       {item.label}
                     </a>
                   </li>
@@ -111,7 +115,7 @@ export function VillageFooter() {
             </ul>
           </nav>
 
-          <div className="lg:col-span-3">
+          <div className="min-w-0 lg:col-span-3">
             <h2
               className={cn(
                 heading,
@@ -120,10 +124,10 @@ export function VillageFooter() {
             >
               For residents
             </h2>
-            <ul className="mt-4 flex flex-col gap-2.5">
+            <ul className={linkList}>
               {residentLinks.map((label) => (
                 <li key={label}>
-                  <a href="#" className={footerLink}>
+                  <a href="#" className={listLink}>
                     {label}
                   </a>
                 </li>
@@ -165,19 +169,19 @@ export function VillageFooter() {
           <p>
             &copy; {copyrightYear} {siteConfig.name}. All rights reserved.
           </p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          <ul className="-my-1 flex flex-wrap gap-x-5 gap-y-1">
             <li>
-              <a href="#" className={footerLink}>
+              <a href="#" className={listLink}>
                 Privacy
               </a>
             </li>
             <li>
-              <a href="#" className={footerLink}>
+              <a href="#" className={listLink}>
                 Site map
               </a>
             </li>
             <li>
-              <a href="#" className={footerLink}>
+              <a href="#" className={listLink}>
                 Staff login
               </a>
             </li>

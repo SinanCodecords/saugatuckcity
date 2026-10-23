@@ -59,14 +59,19 @@ export function BoardCard({ board }: { board: Board }) {
   const Icon = boardIcons[board.icon]
   const headingId = `${board.id}-heading`
   const { meets, where, members, website } = board
+  const hasDetails = Boolean(meets || where || members || website)
 
   return (
     <article
       id={board.id}
       aria-labelledby={headingId}
-      className={`${departmentAnchor} flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${targetHighlight}`}
+      className={`${departmentAnchor} flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${targetHighlight} @2xl:flex-row`}
     >
-      <div className="flex flex-1 items-start gap-4 p-5 sm:p-6">
+      <div
+        className={`flex items-start gap-4 p-5 sm:p-6 @2xl:flex-1 ${
+          hasDetails ? "" : "flex-1"
+        }`}
+      >
         <span
           aria-hidden="true"
           className="flex size-12 shrink-0 items-center justify-center rounded-md bg-(--navy) text-white shadow-sm"
@@ -86,8 +91,8 @@ export function BoardCard({ board }: { board: Board }) {
         </div>
       </div>
 
-      {meets || where || members || website ? (
-        <div className="space-y-4 border-t border-slate-200 bg-slate-50 p-5 sm:px-6">
+      {hasDetails ? (
+        <div className="flex-1 space-y-4 border-t border-slate-200 bg-slate-50 p-5 sm:px-6 @2xl:w-80 @2xl:flex-none @2xl:border-t-0 @2xl:border-l @2xl:py-6">
           {meets || where || members ? (
             <dl className="space-y-3">
               {meets ? (

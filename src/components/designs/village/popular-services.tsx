@@ -58,7 +58,7 @@ export function VillageServices() {
           }
         />
 
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
           {quickLinks.map((link, index) => {
             const Icon = icons[link.icon]
             return (
@@ -67,18 +67,18 @@ export function VillageServices() {
                   href="#"
                   className={cn(
                     focusRing,
-                    "group flex h-full flex-col gap-4 rounded-3xl border border-(--v-line) bg-(--v-card) p-6 shadow-[0_14px_32px_-22px_rgba(29,92,74,0.4)] transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-0.5 hover:border-(--v-primary)/30 hover:shadow-[0_22px_40px_-22px_rgba(29,92,74,0.5)]"
+                    "group flex h-full items-center gap-4 rounded-3xl border border-(--v-line) bg-(--v-card) p-4 shadow-[0_14px_32px_-22px_rgba(29,92,74,0.4)] transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-0.5 hover:border-(--v-primary)/30 hover:shadow-[0_22px_40px_-22px_rgba(29,92,74,0.5)] sm:flex-col sm:items-start sm:p-6"
                   )}
                 >
                   <span
                     className={cn(
-                      "inline-flex size-13 items-center justify-center rounded-full",
+                      "inline-flex size-12 shrink-0 items-center justify-center rounded-full sm:size-13",
                       tints[index % tints.length]
                     )}
                   >
                     <Icon className="size-6" aria-hidden="true" />
                   </span>
-                  <span className="flex-1">
+                  <span className="min-w-0 flex-1">
                     <span
                       className={cn(
                         heading,
@@ -87,14 +87,18 @@ export function VillageServices() {
                     >
                       {link.label}
                     </span>
-                    <span className="mt-1 block text-[0.95rem] leading-relaxed text-(--v-muted)">
+                    <span className="mt-0.5 block text-[0.95rem] leading-snug text-(--v-muted) sm:mt-1 sm:leading-relaxed">
                       {link.description}
                     </span>
                   </span>
+                  <ArrowRight
+                    className="size-5 shrink-0 text-(--v-primary) transition-transform group-hover:translate-x-0.5 sm:hidden"
+                    aria-hidden="true"
+                  />
                   <span
                     className={cn(
                       heading,
-                      "inline-flex items-center gap-1 text-sm font-bold text-(--v-primary)"
+                      "hidden items-center gap-1 text-sm font-bold text-(--v-primary) sm:inline-flex"
                     )}
                   >
                     Go

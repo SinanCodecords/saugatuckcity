@@ -26,7 +26,7 @@ export function AboutIntro() {
           </div>
         </div>
 
-        <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-slate-100 shadow-sm lg:aspect-[4/3]">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-slate-100 shadow-sm sm:aspect-[21/9] lg:aspect-[4/3]">
           <Image
             src={aboutImages.sunset}
             alt="Sunset over Lake Michigan"

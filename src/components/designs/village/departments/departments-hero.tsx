@@ -10,7 +10,15 @@ import {
 import { pageHref } from "@/content/home"
 import { cn } from "@/lib/utils"
 
-import { Container, PillLink, focusRing, heading } from "../shared"
+import {
+  Container,
+  PillLink,
+  focusRing,
+  heading,
+  jumpItem,
+  jumpList,
+  jumpPill,
+} from "../shared"
 import { VillageWhoToContact } from "./who-to-contact"
 
 export function VillageDepartmentsHero() {
@@ -76,19 +84,20 @@ export function VillageDepartmentsHero() {
               {departmentsIntro.body}
             </p>
 
-            <ul
-              aria-label="Jump to"
-              className="mt-8 flex flex-wrap gap-2.5 sm:gap-3"
-            >
+            <ul aria-label="Jump to" className={cn(jumpList, "mt-8")}>
               {departmentGroups.map((group, index) => {
                 const count = departmentDirectory.filter(
                   (department) => department.group === group.id
                 ).length
                 return (
-                  <li key={group.id}>
+                  <li
+                    key={group.id}
+                    className={jumpItem(index, departmentGroups.length)}
+                  >
                     <PillLink
                       href={`#village-group-${group.id}`}
                       tone={index === 0 ? "primary" : "secondary"}
+                      className={jumpPill}
                     >
                       {index === 0 ? group.title : "Other locations"}
                       <span className="sr-only">, </span>
@@ -109,7 +118,7 @@ export function VillageDepartmentsHero() {
               })}
             </ul>
 
-            <div className="relative mt-10 hidden aspect-[16/9] overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] sm:block">
+            <div className="relative mt-10 hidden aspect-[5/2] overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] sm:block lg:aspect-[16/9]">
               <Image
                 src={departmentsImages.banner}
                 alt="The sun going down over Lake Michigan"

@@ -207,7 +207,7 @@ export function VillageHappening() {
                           "flex size-14 shrink-0 flex-col items-center justify-center rounded-full bg-(--v-primary) leading-none text-white"
                         )}
                       >
-                        <span className="text-[0.6rem] font-bold tracking-wider uppercase">
+                        <span className="mb-0.5 text-xs font-bold tracking-wide uppercase">
                           {when.month}
                         </span>
                         <span className="text-xl font-extrabold">

@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowDown } from "lucide-react"
 
 import {
   departmentGroups,
@@ -9,7 +8,13 @@ import {
 } from "@/content/departments"
 import { pageHref } from "@/content/home"
 
-import { container, focusRing, kicker, serif } from "../about/shared"
+import {
+  breadcrumbLink,
+  container,
+  JumpNav,
+  kicker,
+  serif,
+} from "../about/shared"
 
 const inThisDirectory = [
   { label: "Who do I contact?", href: "#who-to-contact" },
@@ -22,15 +27,12 @@ const inThisDirectory = [
 
 export function DunesDepartmentsHeader() {
   return (
-    <header className="pt-8 pb-12 lg:pt-12 lg:pb-16">
+    <header className="pt-7 pb-12 lg:pt-11 lg:pb-16">
       <div className={container}>
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.18em] text-(--dn-ink-soft) uppercase">
             <li className="flex items-center gap-2">
-              <Link
-                href={pageHref("dunes", "home")}
-                className={`rounded-sm underline decoration-(--dn-rule) underline-offset-4 transition-colors hover:text-(--dn-teal) hover:decoration-(--dn-teal) ${focusRing}`}
-              >
+              <Link href={pageHref("dunes", "home")} className={breadcrumbLink}>
                 Home
               </Link>
               <span aria-hidden="true" className="text-(--dn-terra)">
@@ -47,7 +49,7 @@ export function DunesDepartmentsHeader() {
 
         <p className={`mt-10 lg:mt-14 ${kicker}`}>The City · A directory</p>
         <h1
-          className={`mt-4 ${serif} text-5xl leading-[0.98] font-light tracking-[-0.03em] text-balance sm:text-6xl lg:text-7xl xl:text-[5.5rem]`}
+          className={`mt-4 ${serif} text-[2.75rem] leading-[0.98] font-light tracking-[-0.03em] text-balance sm:text-6xl lg:text-7xl xl:text-[5.5rem]`}
         >
           {departmentsIntro.title}
         </h1>
@@ -64,34 +66,11 @@ export function DunesDepartmentsHeader() {
             </p>
           </div>
 
-          <nav
-            aria-labelledby="dn-departments-contents"
-            className="lg:col-span-3 lg:col-start-10"
-          >
-            <p
-              id="dn-departments-contents"
-              className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-ink-soft) uppercase"
-            >
-              In this directory
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 lg:flex-col">
-              {inThisDirectory.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`group inline-flex items-center gap-1.5 rounded-sm text-[15px] font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) ${focusRing}`}
-                  >
-                    {item.label}
-                    <ArrowDown
-                      className="size-3.5 shrink-0 text-(--dn-terra) transition-transform duration-200 group-hover:translate-y-0.5"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <JumpNav
+            id="dn-departments-contents"
+            label="In this directory"
+            items={inThisDirectory}
+          />
         </div>
       </div>
 

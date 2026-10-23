@@ -11,7 +11,7 @@ export function DunesBoardsParticipate() {
   return (
     <div className="border-t border-(--dn-rule)">
       <div
-        className={`${container} grid grid-cols-1 gap-14 py-16 lg:grid-cols-12 lg:gap-10 lg:py-24`}
+        className={`${container} grid grid-cols-1 gap-12 py-14 sm:gap-14 sm:py-16 lg:grid-cols-12 lg:gap-10 lg:py-24`}
       >
         <section
           id="open-meetings"

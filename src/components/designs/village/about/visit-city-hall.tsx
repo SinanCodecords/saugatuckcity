@@ -73,16 +73,13 @@ export function VillageAboutVisit() {
               </div>
             </div>
 
-            <dl className="flex flex-col gap-2 rounded-3xl bg-white p-3 text-(--v-text) shadow-[0_20px_45px_-24px_rgba(0,0,0,0.5)] sm:p-4">
+            <dl className="flex flex-col divide-y divide-(--v-line) rounded-3xl bg-white px-4 py-1 text-(--v-text) shadow-[0_20px_45px_-24px_rgba(0,0,0,0.5)] sm:px-6">
               {details.map((detail, index) => {
                 const Icon = detail.icon
                 return (
                   <div
                     key={detail.label}
-                    className={cn(
-                      "flex items-start gap-4 rounded-2xl px-3 py-3",
-                      index > 0 && "border-t border-(--v-line)"
-                    )}
+                    className="flex items-start gap-3.5 py-4 sm:gap-4"
                   >
                     <span
                       className={cn(

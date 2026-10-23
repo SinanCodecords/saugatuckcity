@@ -54,7 +54,7 @@ export function VillageGettingThere() {
               <li
                 key={option.label}
                 className={cn(
-                  "flex flex-col rounded-3xl border p-6 sm:p-7",
+                  "flex flex-col rounded-3xl border p-6 sm:p-7 md:p-5 lg:p-7",
                   step.card
                 )}
               >
@@ -74,7 +74,7 @@ export function VillageGettingThere() {
                 <h3
                   className={cn(
                     heading,
-                    "mt-5 text-xl leading-tight font-extrabold tracking-tight text-(--v-text) sm:text-2xl"
+                    "mt-5 text-xl leading-tight font-extrabold tracking-tight text-(--v-text) sm:text-2xl md:text-xl lg:text-2xl"
                   )}
                 >
                   <span className="sr-only">Option {index + 1}: </span>
@@ -84,7 +84,7 @@ export function VillageGettingThere() {
                   {option.body}
                 </p>
                 {phone ? (
-                  <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-2 pt-5">
+                  <div className="mt-auto flex flex-wrap items-center gap-x-2.5 gap-y-2 pt-5">
                     <CallPill
                       phone={phone}
                       who={`the ${option.label}`}

@@ -56,7 +56,7 @@ function OvalBeachFeature() {
       aria-labelledby="harbor-oval-beach-heading"
       className="grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_12px_40px_-12px_rgba(11,37,69,0.25)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
     >
-      <div className="relative aspect-[16/10] bg-slate-100 sm:aspect-[16/8] lg:aspect-auto">
+      <div className="relative aspect-[16/10] bg-slate-100 sm:aspect-[21/9] lg:aspect-auto">
         <Image
           src={parksImages.beach}
           alt="Sunset over Lake Michigan from the beach"
@@ -140,21 +140,25 @@ function ChainFerryCard() {
       className="overflow-hidden rounded-lg border border-t-3 border-slate-200 border-t-(--gold) bg-white shadow-sm"
     >
       <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] lg:gap-10 lg:p-10">
-        <div className="flex min-w-0 items-start gap-4">
-          <span
-            aria-hidden="true"
-            className="flex size-12 shrink-0 items-center justify-center rounded-md bg-(--navy) text-white shadow-sm"
-          >
-            <Ship className="size-6" />
-          </span>
-          <div className="min-w-0">
-            <p className={eyebrow}>On the river</p>
-            <h2
-              id="harbor-chain-ferry-heading"
-              className="mt-1 text-2xl font-semibold tracking-tight text-(--navy) sm:text-3xl"
+        <div className="min-w-0">
+          <div className="flex items-start gap-4">
+            <span
+              aria-hidden="true"
+              className="flex size-12 shrink-0 items-center justify-center rounded-md bg-(--navy) text-white shadow-sm"
             >
-              {chainFerry.name}
-            </h2>
+              <Ship className="size-6" />
+            </span>
+            <div className="min-w-0">
+              <p className={eyebrow}>On the river</p>
+              <h2
+                id="harbor-chain-ferry-heading"
+                className="mt-1 text-2xl font-semibold tracking-tight text-(--navy) sm:text-3xl"
+              >
+                {chainFerry.name}
+              </h2>
+            </div>
+          </div>
+          <div className="sm:pl-16">
             <p className="mt-3 text-base leading-relaxed text-slate-700">
               {chainFerry.summary}
             </p>

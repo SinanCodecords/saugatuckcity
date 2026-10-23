@@ -1,6 +1,11 @@
 import { ArrowDown } from "lucide-react"
 
-import { container, SectionHeading, serif } from "../about/shared"
+import {
+  container,
+  SectionHeading,
+  serif,
+  WithTrailingIcon,
+} from "../about/shared"
 import { groupedBoards } from "./shared"
 
 const columnHead =
@@ -80,17 +85,18 @@ export function DunesBoardsCalendar() {
                   >
                     <a
                       href={`#${board.id}`}
-                      className={`group inline-flex items-baseline gap-2 rounded-sm ${serif} text-xl leading-snug text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal) sm:text-[22px]`}
+                      className={`group rounded-sm ${serif} text-xl leading-snug text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal) sm:text-[22px]`}
                     >
-                      {board.name}
-                      <ArrowDown
-                        className="size-3.5 shrink-0 self-center text-(--dn-terra) transition-transform duration-200 group-hover:translate-y-0.5"
-                        strokeWidth={1.75}
-                        aria-hidden="true"
-                      />
+                      <WithTrailingIcon label={board.name}>
+                        <ArrowDown
+                          className="ml-2 inline-block size-3.5 align-[-0.05em] text-(--dn-terra) transition-transform duration-200 group-hover:translate-y-0.5"
+                          strokeWidth={1.75}
+                          aria-hidden="true"
+                        />
+                      </WithTrailingIcon>
                     </a>
                   </th>
-                  <td className="align-baseline text-[12px] tracking-[0.14em] text-(--dn-ink) uppercase tabular-nums sm:py-4 sm:pr-6">
+                  <td className="align-baseline text-[12px] leading-relaxed tracking-[0.14em] text-pretty text-(--dn-ink) uppercase tabular-nums sm:py-4 sm:pr-6">
                     <span
                       aria-hidden="true"
                       className="mr-2 font-semibold text-(--dn-ink-soft) sm:hidden"

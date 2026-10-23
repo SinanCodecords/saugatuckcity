@@ -9,6 +9,21 @@ import { BoardIcon, boardsInGroup, groupAnchor } from "./shared"
 
 const pastGroup = boardGroups.find((group) => group.id === "past")
 
+/**
+ * Keeps the tile grid free of lonely orphans: tiles are a third wide on large
+ * screens, and the leftovers of the last row widen to fill it (two halves, or
+ * one full row). On the two-column layout an odd last tile spans the row.
+ */
+function tileSpan(index: number, count: number) {
+  const lastRow = count % 3
+  const inLastRow = lastRow > 0 && index >= count - lastRow
+  return cn(
+    "lg:col-span-2",
+    inLastRow && (lastRow === 2 ? "lg:col-span-3" : "lg:col-span-6"),
+    count % 2 === 1 && index === count - 1 && "sm:col-span-2"
+  )
+}
+
 /** Past committees: one soft, muted card with compact rounded tiles. */
 export function VillagePastCommittees() {
   if (!pastGroup) return null
@@ -51,9 +66,9 @@ export function VillagePastCommittees() {
             </div>
           </div>
 
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {past.map((board) => (
-              <li key={board.id}>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+            {past.map((board, index) => (
+              <li key={board.id} className={tileSpan(index, past.length)}>
                 <article
                   id={board.id}
                   aria-labelledby={`${board.id}-title`}

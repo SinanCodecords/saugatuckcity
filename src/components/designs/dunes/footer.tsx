@@ -16,10 +16,10 @@ const utilityLinks = [
 export function DunesFooter() {
   return (
     <footer className="bg-(--dn-bg)">
-      <div className="mx-auto w-full max-w-7xl px-5 pt-16 pb-10 sm:px-8 lg:pt-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
+      <div className="mx-auto w-full max-w-7xl px-5 pt-14 pb-10 sm:px-8 lg:pt-20">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-12 sm:gap-x-8 sm:gap-y-12 lg:gap-10">
           {/* Wordmark + contact */}
-          <div className="lg:col-span-5">
+          <div className="sm:col-span-12 lg:col-span-5">
             <p className="font-(family-name:--font-dunes-serif) text-4xl leading-none font-light tracking-[-0.02em] sm:text-5xl">
               City of
               <br />
@@ -44,16 +44,16 @@ export function DunesFooter() {
           </div>
 
           {/* Site */}
-          <nav aria-label="Footer" className="lg:col-span-3">
+          <nav aria-label="Footer" className="sm:col-span-5 lg:col-span-3">
             <h2 className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-ink) uppercase">
               Site
             </h2>
-            <ul className="mt-5 flex flex-col gap-2.5">
+            <ul className="mt-4 grid grid-cols-1 gap-x-6 gap-y-0.5 min-[360px]:grid-cols-2 sm:grid-cols-1">
               {mainNav.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={navHref("dunes", item)}
-                    className="rounded-sm text-[15px] text-(--dn-ink-soft) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal)"
+                    className="inline-block rounded-sm py-1 text-[15px] text-(--dn-ink-soft) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal)"
                   >
                     {item.label}
                   </Link>
@@ -63,16 +63,16 @@ export function DunesFooter() {
           </nav>
 
           {/* Departments */}
-          <nav aria-label="Departments" className="lg:col-span-4">
+          <nav aria-label="Departments" className="sm:col-span-7 lg:col-span-4">
             <h2 className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-ink) uppercase">
               Departments
             </h2>
-            <ul className="mt-5 grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2">
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-0.5 sm:gap-x-8">
               {departments.map((department) => (
                 <li key={department}>
                   <Link
                     href={pageHref("dunes", "departments")}
-                    className="rounded-sm text-[15px] text-(--dn-ink-soft) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal)"
+                    className="inline-block rounded-sm py-1 text-[15px] text-(--dn-ink-soft) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal)"
                   >
                     {department}
                   </Link>
@@ -83,7 +83,7 @@ export function DunesFooter() {
         </div>
 
         {/* Accessibility statement */}
-        <div className="mt-14 border-t border-(--dn-rule) pt-8">
+        <div className="mt-12 border-t border-(--dn-rule) pt-8 lg:mt-14">
           <h2 className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-ink) uppercase">
             Accessibility
           </h2>
@@ -108,12 +108,12 @@ export function DunesFooter() {
           <p>
             &copy; {copyrightYear} {siteConfig.name}. All rights reserved.
           </p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="-my-1 flex flex-wrap gap-x-5 sm:gap-x-6">
             {utilityLinks.map((label) => (
               <li key={label}>
                 <Link
                   href="#"
-                  className="rounded-sm transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal)"
+                  className="inline-block rounded-sm py-1 transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal)"
                 >
                   {label}
                 </Link>

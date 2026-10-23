@@ -112,7 +112,7 @@ export function Note({ children }: { children: ReactNode }) {
         aria-hidden="true"
         className="mt-0.5 size-4 shrink-0 text-(--blue-text)"
       />
-      <span>{children}</span>
+      <span className="text-pretty">{children}</span>
     </p>
   )
 }

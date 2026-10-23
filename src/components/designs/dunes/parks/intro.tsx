@@ -6,7 +6,10 @@ import { container, kicker, serif } from "../about/shared"
 /** The intro body, opened with the About page's terra drop cap. */
 export function DunesParksIntro() {
   return (
-    <section aria-labelledby="dn-parks-intro" className="pb-16 lg:pb-24">
+    <section
+      aria-labelledby="dn-parks-intro"
+      className="pb-12 sm:pb-16 lg:pb-24"
+    >
       <div
         className={`${container} grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-10`}
       >
@@ -31,7 +34,10 @@ export function DunesParksIntro() {
 /** The facts as big serif numerals divided by hairlines, as on About. */
 export function DunesParksFacts() {
   return (
-    <section aria-labelledby="dn-parks-facts" className="pb-16 lg:pb-24">
+    <section
+      aria-labelledby="dn-parks-facts"
+      className="pb-14 sm:pb-16 lg:pb-24"
+    >
       <div className={container}>
         <h2 id="dn-parks-facts" className={kicker}>
           By the numbers

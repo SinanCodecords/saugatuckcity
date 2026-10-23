@@ -2,6 +2,7 @@ import { Building2, MapPinned } from "lucide-react"
 
 import { departmentDirectory, departmentGroups } from "@/content/departments"
 
+import { balancedCell, balancedGrid } from "../card-grid"
 import { DepartmentCard } from "./department-card"
 
 const groupIcons = {
@@ -34,7 +35,7 @@ export function DepartmentGroups() {
                     />
                     {group.title}
                   </h2>
-                  <p className="mt-1 text-sm text-slate-600">
+                  <p className="mt-1 text-sm text-pretty text-slate-600">
                     {group.description}
                   </p>
                 </div>
@@ -43,9 +44,19 @@ export function DepartmentGroups() {
                 </p>
               </div>
 
-              <ul className="mt-6 grid gap-5 lg:grid-cols-2 lg:gap-6">
-                {departments.map((department) => (
-                  <li key={department.id}>
+              <ul
+                className={`mt-6 gap-5 lg:gap-6 ${balancedGrid("lg", "none")}`}
+              >
+                {departments.map((department, index) => (
+                  <li
+                    key={department.id}
+                    className={balancedCell(
+                      index,
+                      departments.length,
+                      "lg",
+                      "none"
+                    )}
+                  >
                     <DepartmentCard department={department} />
                   </li>
                 ))}

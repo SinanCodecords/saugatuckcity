@@ -5,7 +5,15 @@ import { boardGroups, boardsImages, boardsIntro } from "@/content/boards"
 import { pageHref } from "@/content/home"
 import { cn } from "@/lib/utils"
 
-import { Container, PillLink, focusRing, heading } from "../shared"
+import {
+  Container,
+  PillLink,
+  focusRing,
+  heading,
+  jumpItem,
+  jumpList,
+  jumpPill,
+} from "../shared"
 import { boardsInGroup, groupAnchor } from "./shared"
 import { VillageWhenTheyMeet } from "./when-they-meet"
 
@@ -72,17 +80,18 @@ export function VillageBoardsHero() {
               {boardsIntro.body}
             </p>
 
-            <ul
-              aria-label="Jump to"
-              className="mt-8 flex flex-wrap gap-2.5 sm:gap-3"
-            >
+            <ul aria-label="Jump to" className={cn(jumpList, "mt-8")}>
               {boardGroups.map((group, index) => {
                 const count = boardsInGroup(group.id).length
                 return (
-                  <li key={group.id}>
+                  <li
+                    key={group.id}
+                    className={jumpItem(index, boardGroups.length)}
+                  >
                     <PillLink
                       href={`#${groupAnchor(group.id)}`}
                       tone={index === 0 ? "primary" : "secondary"}
+                      className={jumpPill}
                     >
                       {group.title}
                       <span className="sr-only">, </span>
@@ -105,7 +114,7 @@ export function VillageBoardsHero() {
               })}
             </ul>
 
-            <div className="relative mt-10 hidden aspect-[16/9] overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] sm:block">
+            <div className="relative mt-10 hidden aspect-[5/2] overflow-hidden rounded-[2rem] shadow-[0_24px_50px_-24px_rgba(29,92,74,0.5)] sm:block lg:aspect-[16/9]">
               <Image
                 src={boardsImages.banner}
                 alt="Autumn trees reflected in still water"

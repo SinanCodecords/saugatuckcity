@@ -5,7 +5,15 @@ import { aboutImages, aboutIntro, history } from "@/content/about"
 import { pageHref } from "@/content/home"
 import { cn } from "@/lib/utils"
 
-import { Container, PillLink, focusRing, heading } from "../shared"
+import {
+  Container,
+  PillLink,
+  focusRing,
+  heading,
+  jumpItem,
+  jumpList,
+  jumpPill,
+} from "../shared"
 
 const jumps = [
   { label: "How the City is run", href: "#village-government" },
@@ -81,15 +89,13 @@ export function VillageAboutHero() {
               </p>
             ))}
 
-            <ul
-              aria-label="Jump to"
-              className="mt-8 flex flex-wrap gap-2.5 sm:gap-3"
-            >
+            <ul aria-label="Jump to" className={cn(jumpList, "mt-8")}>
               {jumps.map((jump, index) => (
-                <li key={jump.href}>
+                <li key={jump.href} className={jumpItem(index, jumps.length)}>
                   <PillLink
                     href={jump.href}
                     tone={index === 0 ? "primary" : "secondary"}
+                    className={jumpPill}
                   >
                     {jump.label}
                   </PillLink>
@@ -125,7 +131,7 @@ export function VillageAboutHero() {
                 "absolute -top-3 right-2 flex size-24 rotate-12 flex-col items-center justify-center rounded-full bg-(--v-primary) text-center text-white shadow-[0_14px_30px_-12px_rgba(29,92,74,0.7)] ring-4 ring-white sm:-right-3 sm:size-28"
               )}
             >
-              <span className="text-[0.65rem] font-bold tracking-[0.2em] uppercase">
+              <span className="mb-1 text-xs leading-none font-bold tracking-[0.18em] uppercase">
                 Since
               </span>
               <span className="text-2xl leading-none font-extrabold sm:text-3xl">

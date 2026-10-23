@@ -16,20 +16,26 @@ export function DunesHeader({ current }: { current: SitePage }) {
     <header className="sticky top-10 z-40 border-b border-(--dn-rule) bg-(--dn-bg)/95 backdrop-blur supports-backdrop-filter:bg-(--dn-bg)/85">
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         {/* Wordmark row */}
-        <div className="relative flex h-16 items-center justify-between lg:h-20 lg:justify-center">
-          <div className="lg:hidden">
+        <div className="relative flex h-16 items-center justify-between gap-3 lg:h-20 lg:justify-center">
+          <div className="shrink-0 lg:hidden">
             <DunesMobileNav current={current} />
           </div>
 
           <Link
             href={pageHref("dunes", "home")}
-            className="group inline-flex flex-col items-center rounded-sm text-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal)"
+            className="group inline-flex min-w-0 flex-col items-center rounded-sm text-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal)"
           >
-            <span className="font-(family-name:--font-dunes-serif) text-[13px] font-semibold tracking-[0.22em] uppercase sm:text-sm lg:text-[15px]">
+            <span className="font-(family-name:--font-dunes-serif) text-[13px] font-semibold tracking-[0.2em] whitespace-nowrap uppercase sm:text-sm sm:tracking-[0.22em] lg:text-[15px]">
               City of Saugatuck
-              <span aria-hidden="true" className="mx-2 text-(--dn-terra)">
-                ·
+              <span className="hidden sm:inline">
+                <span aria-hidden="true" className="mx-2 text-(--dn-terra)">
+                  ·
+                </span>
+                Michigan
               </span>
+            </span>
+            {/* On phones the state drops to its own small line so the wordmark never wraps. */}
+            <span className="mt-0.5 text-[11px] tracking-[0.22em] text-(--dn-ink-soft) uppercase sm:hidden">
               Michigan
             </span>
             <span className="mt-1 hidden text-[11px] tracking-[0.18em] text-(--dn-ink-soft) uppercase sm:block">
@@ -40,7 +46,7 @@ export function DunesHeader({ current }: { current: SitePage }) {
           <button
             type="button"
             aria-label="Search the site"
-            className="inline-flex size-10 items-center justify-center rounded-full text-(--dn-ink) transition-colors hover:bg-(--dn-bg-deep) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal) lg:absolute lg:top-1/2 lg:right-0 lg:-translate-y-1/2"
+            className="inline-flex size-10 shrink-0 items-center justify-center rounded-full text-(--dn-ink) transition-colors hover:bg-(--dn-bg-deep) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal) lg:absolute lg:top-1/2 lg:right-0 lg:-translate-y-1/2"
           >
             <Search
               className="size-[18px]"

@@ -1,11 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowDown } from "lucide-react"
 
 import { pageHref } from "@/content/home"
 import { parksImages, parksIntro, reservePark } from "@/content/parks"
 
-import { container, focusRing, kicker, serif } from "../about/shared"
+import {
+  breadcrumbLink,
+  container,
+  JumpNav,
+  kicker,
+  serif,
+} from "../about/shared"
 
 const inThisGuide = [
   { label: "The beach", href: "#beach" },
@@ -20,15 +25,12 @@ const inThisGuide = [
 
 export function DunesParksHeader() {
   return (
-    <header className="pt-8 pb-14 lg:pt-12 lg:pb-20">
+    <header className="pt-7 pb-14 lg:pt-11 lg:pb-20">
       <div className={container}>
         <nav aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.18em] text-(--dn-ink-soft) uppercase">
             <li className="flex items-center gap-2">
-              <Link
-                href={pageHref("dunes", "home")}
-                className={`rounded-sm underline decoration-(--dn-rule) underline-offset-4 transition-colors hover:text-(--dn-teal) hover:decoration-(--dn-teal) ${focusRing}`}
-              >
+              <Link href={pageHref("dunes", "home")} className={breadcrumbLink}>
                 Home
               </Link>
               <span aria-hidden="true" className="text-(--dn-terra)">
@@ -43,7 +45,9 @@ export function DunesParksHeader() {
           </ol>
         </nav>
 
-        <p className={`mt-12 lg:mt-16 ${kicker}`}>The outdoors · A guide</p>
+        <p className={`mt-10 sm:mt-12 lg:mt-16 ${kicker}`}>
+          The outdoors · A guide
+        </p>
         <h1
           className={`mt-5 ${serif} text-[2.75rem] leading-[0.98] font-light tracking-[-0.03em] text-balance sm:text-7xl lg:text-8xl xl:text-[8rem]`}
         >
@@ -57,39 +61,16 @@ export function DunesParksHeader() {
             {parksIntro.lead}
           </p>
 
-          <nav
-            aria-labelledby="dn-parks-contents"
-            className="lg:col-span-3 lg:col-start-10"
-          >
-            <p
-              id="dn-parks-contents"
-              className="text-[11px] font-semibold tracking-[0.22em] text-(--dn-ink-soft) uppercase"
-            >
-              In this guide
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 lg:flex-col">
-              {inThisGuide.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`group inline-flex items-center gap-1.5 rounded-sm text-[15px] font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) ${focusRing}`}
-                  >
-                    {item.label}
-                    <ArrowDown
-                      className="size-3.5 shrink-0 text-(--dn-terra) transition-transform duration-200 group-hover:translate-y-0.5"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <JumpNav
+            id="dn-parks-contents"
+            label="In this guide"
+            items={inThisGuide}
+          />
         </div>
       </div>
 
       {/* The About feature's wide photograph: this page is a travel feature too. */}
-      <figure className="mx-auto mt-12 w-full max-w-[96rem] sm:px-8 lg:mt-16">
+      <figure className="mx-auto mt-10 w-full max-w-[96rem] sm:mt-12 sm:px-8 lg:mt-16">
         <div className="relative aspect-4/3 overflow-hidden bg-(--dn-bg-deep) sm:aspect-2/1 sm:rounded-sm lg:aspect-21/9">
           <Image
             src={parksImages.beach}

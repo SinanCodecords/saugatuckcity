@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react"
 
 import { government } from "@/content/about"
 
-import { container, SectionHeading, serif } from "./shared"
+import { container, keepDashes, SectionHeading, serif } from "./shared"
 
 /** The summary's first sentence states the Council–Manager idea; it becomes the pull-quote. */
 const [principle, ...rest] = government.summary.split(/(?<=\.)\s+/)
@@ -17,20 +17,20 @@ export function DunesAboutGovernment() {
       aria-labelledby="dn-about-government"
       className="scroll-mt-56 border-t border-(--dn-rule)"
     >
-      <div className={`${container} py-16 lg:py-24`}>
+      <div className={`${container} py-14 sm:py-16 lg:py-24`}>
         <SectionHeading
           id="dn-about-government"
           label="Government"
           title="How the City is run."
         />
 
-        <div className="mt-10 grid grid-cols-1 gap-14 lg:mt-14 lg:grid-cols-12 lg:gap-10">
+        <div className="mt-8 grid grid-cols-1 gap-12 sm:mt-10 sm:gap-14 lg:mt-14 lg:grid-cols-12 lg:gap-10">
           {/* Essay column */}
           <div className="lg:col-span-7">
             <p
               className={`border-l-2 border-(--dn-terra) pl-5 ${serif} text-[1.75rem] leading-[1.2] font-light tracking-[-0.01em] text-balance text-(--dn-ink) sm:pl-8 sm:text-4xl lg:text-[2.75rem]`}
             >
-              {principle}
+              {keepDashes(principle)}
             </p>
 
             <p className="mt-8 max-w-[38rem] text-lg leading-[1.75] text-pretty text-(--dn-ink) lg:text-[19px]">
@@ -45,13 +45,13 @@ export function DunesAboutGovernment() {
                 {government.meetings.map((meeting) => (
                   <div
                     key={meeting.label}
-                    className="flex flex-col gap-1 border-b border-(--dn-rule) py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                    className="grid grid-cols-1 gap-1 border-b border-(--dn-rule) py-5 sm:grid-cols-[11rem_1fr] sm:items-baseline sm:gap-6"
                   >
                     <dt className="text-[15px] text-(--dn-ink-soft)">
                       {meeting.label}
                     </dt>
                     <dd
-                      className={`${serif} text-xl leading-snug text-(--dn-ink) sm:text-right sm:text-[22px]`}
+                      className={`${serif} text-xl leading-snug text-pretty text-(--dn-ink) sm:text-[22px]`}
                     >
                       {meeting.when}
                     </dd>

@@ -11,8 +11,10 @@ import {
 import { siteConfig } from "@/config/site"
 import { formatDate, meetings, news } from "@/content/home"
 
+import { keepTimes } from "./about/ui"
+
 const textLink =
-  "inline-flex items-center gap-1 text-sm font-semibold text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
+  "inline-flex items-center gap-1 py-0.5 text-sm font-semibold text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
 
 function Widget({
   id,
@@ -95,7 +97,10 @@ export function Announcements() {
         </section>
 
         {/* Sidebar */}
-        <aside aria-label="Meetings and City Hall" className="space-y-8">
+        <aside
+          aria-label="Meetings and City Hall"
+          className="space-y-8 md:grid md:grid-cols-2 md:items-start md:gap-6 md:space-y-0 lg:block lg:space-y-8"
+        >
           <Widget id="classic-meetings" title="Upcoming Meetings">
             <ul className="divide-y divide-(--rule)">
               {meetings.map((meeting) => (
@@ -106,9 +111,9 @@ export function Announcements() {
                   >
                     <time
                       dateTime={meeting.date}
-                      className="flex w-12 shrink-0 flex-col items-center rounded-md border border-(--rule) bg-(--band) py-1.5 text-center leading-tight"
+                      className="flex w-12 shrink-0 flex-col items-center self-start rounded-md border border-(--rule) bg-(--band) py-1.5 text-center leading-tight"
                     >
-                      <span className="text-[10px] font-semibold tracking-wider text-(--blue-text) uppercase">
+                      <span className="text-[11px] font-semibold tracking-wider text-(--blue-text) uppercase">
                         {formatDate(meeting.date).slice(0, 3)}
                       </span>
                       <span className="text-lg font-semibold text-(--ink)">
@@ -119,10 +124,20 @@ export function Announcements() {
                       <span className="block text-sm leading-snug font-semibold text-(--ink) group-hover:text-(--blue-text) group-hover:underline">
                         {meeting.title}
                       </span>
-                      <span className="mt-1 flex items-center gap-1.5 text-xs text-(--muted)">
-                        <Clock aria-hidden="true" className="size-3.5" />
+                      {/* Time and place on their own lines so neither wraps mid-phrase in the narrow sidebar */}
+                      <span className="mt-1 flex items-center gap-1.5 text-xs whitespace-nowrap text-(--muted)">
+                        <Clock
+                          aria-hidden="true"
+                          className="size-3.5 shrink-0"
+                        />
                         {meeting.time}
-                        <span aria-hidden="true">&middot;</span>
+                      </span>
+                      <span className="mt-0.5 flex gap-1.5 text-xs text-(--muted)">
+                        <MapPin
+                          aria-hidden="true"
+                          className="mt-px size-3.5 shrink-0"
+                        />
+                        <span className="sr-only">, </span>
                         {meeting.location}
                       </span>
                     </span>
@@ -162,7 +177,7 @@ export function Announcements() {
                   aria-hidden="true"
                   className="mt-0.5 size-4 shrink-0 text-(--blue)"
                 />
-                <span>{siteConfig.contact.hours}</span>
+                <span>{keepTimes(siteConfig.contact.hours)}</span>
               </p>
             </address>
             <a href="#" className={`${textLink} mt-4`}>

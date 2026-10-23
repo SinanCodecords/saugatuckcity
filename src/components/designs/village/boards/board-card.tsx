@@ -57,7 +57,7 @@ export function VillageBoardCard({ board }: { board: Board }) {
       className={cn(
         sectionAnchor,
         cardShadow,
-        "flex h-full flex-col rounded-3xl border border-(--v-line) bg-(--v-card) p-5 sm:p-7"
+        "flex h-full flex-col rounded-3xl border border-(--v-line) bg-(--v-card) p-5 sm:p-7 md:p-6 lg:p-7"
       )}
     >
       <div className="flex items-center gap-4">
@@ -73,7 +73,7 @@ export function VillageBoardCard({ board }: { board: Board }) {
           id={titleId}
           className={cn(
             heading,
-            "min-w-0 text-xl leading-tight font-extrabold tracking-tight text-(--v-text) sm:text-2xl"
+            "min-w-0 text-xl leading-tight font-extrabold tracking-tight text-(--v-text) sm:text-2xl md:text-xl lg:text-2xl"
           )}
         >
           {name}

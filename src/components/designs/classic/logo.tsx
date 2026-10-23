@@ -62,7 +62,7 @@ export function ClassicLogo({ size = "lg", className }: LogoProps) {
       <span
         className={cn(
           "font-semibold tracking-[0.3em] text-(--muted) uppercase",
-          large ? "mt-3 text-[11px]" : "mt-2 text-[9px]"
+          large ? "mt-3 text-xs" : "mt-2 text-[11px]"
         )}
       >
         City of
@@ -78,7 +78,7 @@ export function ClassicLogo({ size = "lg", className }: LogoProps) {
       <span
         className={cn(
           "font-medium tracking-[0.25em] text-(--muted) uppercase",
-          large ? "mt-2 text-[11px]" : "mt-1 text-[9px]"
+          large ? "mt-2 text-xs" : "mt-1 text-[11px]"
         )}
       >
         <span aria-hidden="true">&#9733; </span>

@@ -53,7 +53,7 @@ export function VillageExplore() {
                   href={tile.href}
                   className={cn(
                     focusRing,
-                    "group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[2rem] text-white shadow-[0_24px_50px_-26px_rgba(29,92,74,0.6)] sm:aspect-[5/6]"
+                    "group relative flex aspect-[5/4] flex-col justify-end overflow-hidden rounded-[2rem] text-white shadow-[0_24px_50px_-26px_rgba(29,92,74,0.6)] sm:aspect-[16/9] md:aspect-[3/4] lg:aspect-[5/6]"
                   )}
                 >
                   <Image
@@ -67,14 +67,14 @@ export function VillageExplore() {
                     aria-hidden="true"
                     className="absolute inset-0 bg-gradient-to-t from-[#0f3a2e] via-[#0f3a2e]/55 to-transparent"
                   />
-                  <div className="relative p-6 sm:p-7">
+                  <div className="relative p-6 sm:p-7 md:p-5 lg:p-7">
                     <span className="inline-flex size-11 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/30 backdrop-blur">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
                     <h3
                       className={cn(
                         heading,
-                        "mt-4 text-2xl font-extrabold tracking-tight"
+                        "mt-4 text-2xl leading-tight font-extrabold tracking-tight md:text-xl lg:text-2xl"
                       )}
                     >
                       {tile.title}

@@ -54,7 +54,7 @@ export function VillageHostAndPlan() {
               >
                 {initials("City Hall")}
               </span>
-              <div className="min-w-0 flex-1">
+              <div className="min-w-0 flex-1 basis-40">
                 <p
                   className={cn(
                     heading,

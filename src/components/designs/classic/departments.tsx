@@ -19,13 +19,13 @@ export function Departments() {
           >
             Departments
           </h2>
-          <div className="flex flex-col gap-1 sm:items-end">
+          <div className="flex flex-col items-start gap-1 sm:items-end">
             <p className="text-sm text-(--body)">
               Find the office that handles your question.
             </p>
             <Link
               href={departmentsHref}
-              className="inline-flex items-center gap-1 text-sm font-semibold text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
+              className="inline-flex items-center gap-1 py-0.5 text-sm font-semibold text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
             >
               All departments
               <ArrowRight aria-hidden="true" className="size-4" />
@@ -33,7 +33,8 @@ export function Departments() {
           </div>
         </div>
 
-        <ul className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-(--rule) bg-(--rule) sm:grid-cols-2 lg:grid-cols-5">
+        {/* Three across from sm up, so the nine offices fill every row */}
+        <ul className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-(--rule) bg-(--rule) sm:grid-cols-3">
           {departments.map((department) => (
             <li key={department} className="bg-white">
               <Link

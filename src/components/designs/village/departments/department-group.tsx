@@ -9,7 +9,13 @@ import { siteConfig } from "@/config/site"
 import { departmentDirectory, departmentGroups } from "@/content/departments"
 import { cn } from "@/lib/utils"
 
-import { Container, PillLink, heading } from "../shared"
+import {
+  Container,
+  PillLink,
+  heading,
+  masonryItem,
+  masonryList,
+} from "../shared"
 import { sectionAnchor } from "../about/shared"
 import { CallPill } from "./call-pill"
 import { VillageDepartmentCard } from "./department-card"
@@ -69,14 +75,16 @@ export function VillageDepartmentGroup({ group }: { group: Group }) {
           </div>
         </div>
 
-        <ul className="mt-8 grid gap-5 md:grid-cols-2">
+        {/* Two masonry columns: cards differ a lot in length, so a row grid
+            would leave tall empty gaps inside the shorter card of each pair. */}
+        <ul className={masonryList}>
           {departments.map((department) => (
-            <li key={department.id}>
+            <li key={department.id} className={masonryItem}>
               <VillageDepartmentCard department={department} />
             </li>
           ))}
           {departments.length % 2 === 1 ? (
-            <li className="hidden md:block">
+            <li className={cn(masonryItem, "hidden md:block")}>
               <NotSureCard />
             </li>
           ) : null}
