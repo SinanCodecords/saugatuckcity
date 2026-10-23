@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
-import { departments, mainNav, navHref } from "@/content/home"
+import { departments, mainNav, navHref, pageHref } from "@/content/home"
 
 // Fixed so the fully static prerender never touches a request-time clock.
 const copyrightYear = 2026
@@ -71,7 +71,7 @@ export function DunesFooter() {
               {departments.map((department) => (
                 <li key={department}>
                   <Link
-                    href="#"
+                    href={pageHref("dunes", "departments")}
                     className="rounded-sm text-[15px] text-(--dn-ink-soft) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--dn-teal)"
                   >
                     {department}

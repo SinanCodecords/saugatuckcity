@@ -1,6 +1,9 @@
-import { ChevronRight } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, ChevronRight } from "lucide-react"
 
-import { departments } from "@/content/home"
+import { departments, pageHref } from "@/content/home"
+
+const departmentsHref = pageHref("classic", "departments")
 
 export function Departments() {
   return (
@@ -16,16 +19,25 @@ export function Departments() {
           >
             Departments
           </h2>
-          <p className="text-sm text-(--body)">
-            Find the office that handles your question.
-          </p>
+          <div className="flex flex-col gap-1 sm:items-end">
+            <p className="text-sm text-(--body)">
+              Find the office that handles your question.
+            </p>
+            <Link
+              href={departmentsHref}
+              className="inline-flex items-center gap-1 text-sm font-semibold text-(--blue-text) hover:underline focus-visible:rounded focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none"
+            >
+              All departments
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </Link>
+          </div>
         </div>
 
         <ul className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-(--rule) bg-(--rule) sm:grid-cols-2 lg:grid-cols-5">
           {departments.map((department) => (
             <li key={department} className="bg-white">
-              <a
-                href="#"
+              <Link
+                href={departmentsHref}
                 className="group flex items-center justify-between gap-3 px-4 py-3.5 text-sm font-medium text-(--ink) transition-colors hover:bg-(--blue-pale) hover:text-(--blue-text) focus-visible:bg-(--blue-pale) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none focus-visible:ring-inset"
               >
                 {department}
@@ -33,7 +45,7 @@ export function Departments() {
                   aria-hidden="true"
                   className="size-4 shrink-0 text-(--muted) transition-colors group-hover:text-(--blue-text)"
                 />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

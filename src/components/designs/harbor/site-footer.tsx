@@ -1,7 +1,7 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
-import { departments, quickLinks } from "@/content/home"
+import { departments, pageHref, quickLinks } from "@/content/home"
 
 const footerLink =
   "inline-block rounded py-0.5 text-sm text-slate-200 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--gold)"
@@ -92,7 +92,10 @@ export function SiteFooter() {
             <ul className="mt-4 grid grid-cols-1 gap-1.5">
               {departments.map((department) => (
                 <li key={department}>
-                  <a href="#" className={footerLink}>
+                  <a
+                    href={pageHref("harbor", "departments")}
+                    className={footerLink}
+                  >
                     {department}
                   </a>
                 </li>

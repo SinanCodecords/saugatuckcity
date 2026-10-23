@@ -5,7 +5,7 @@
  */
 
 /** Pages built so far in the shortlisted design variants. */
-export type SitePage = "home" | "about"
+export type SitePage = "home" | "about" | "departments"
 
 type NavItem = {
   readonly label: string
@@ -16,7 +16,7 @@ type NavItem = {
 export const mainNav: readonly NavItem[] = [
   { label: "Home", href: "/", page: "home" },
   { label: "About", href: "#", page: "about" },
-  { label: "Departments", href: "#" },
+  { label: "Departments", href: "#", page: "departments" },
   { label: "Boards & Committees", href: "#" },
   { label: "Parks & Recreation", href: "#" },
   { label: "Forms", href: "#" },
@@ -24,7 +24,11 @@ export const mainNav: readonly NavItem[] = [
   { label: "Contact", href: "#" },
 ]
 
-const pagePaths: Record<SitePage, string> = { home: "", about: "/about" }
+const pagePaths: Record<SitePage, string> = {
+  home: "",
+  about: "/about",
+  departments: "/departments",
+}
 
 /** URL of a built page inside one design variant, e.g. /designs/dunes/about. */
 export function pageHref(design: string, page: SitePage) {
@@ -135,16 +139,16 @@ export const meetings = [
   },
 ] as const
 
+/** Short department names for home sections and footers; full details are in content/departments.ts. */
 export const departments = [
   "City Manager",
   "City Clerk",
   "Treasurer",
-  "Assessor",
-  "Building & Zoning",
+  "Assessing",
+  "Planning & Zoning",
   "Public Works",
-  "Water & Sewer",
-  "Harbor",
-  "Parks & Recreation",
+  "Building",
+  "Law Enforcement",
   "Fire Department",
 ] as const
 

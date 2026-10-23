@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { ArrowRight, Building2, Trees, Users } from "lucide-react"
 
-import { departments, heroImages } from "@/content/home"
+import { departments, heroImages, pageHref } from "@/content/home"
 import { cn } from "@/lib/utils"
 
 import { Container, SectionHeading, focusRing, heading } from "./shared"
@@ -9,6 +9,7 @@ import { Container, SectionHeading, focusRing, heading } from "./shared"
 const tiles = [
   {
     title: "Parks & Beaches",
+    href: "#",
     line: "Oval Beach, Mount Baldhead, the chain ferry and a dozen pocket parks.",
     image: heroImages.dunes,
     alt: "Grass-covered sand dunes above Lake Michigan",
@@ -16,6 +17,7 @@ const tiles = [
   },
   {
     title: "Boards & Committees",
+    href: "#",
     line: "Meet the volunteers who shape planning, the harbor and downtown.",
     image: heroImages.harbor,
     alt: "Boats on the calm water of Saugatuck harbor",
@@ -23,7 +25,8 @@ const tiles = [
   },
   {
     title: "Departments",
-    line: `${departments.length} departments, from the Clerk to Water & Sewer, ready to help.`,
+    href: pageHref("village", "departments"),
+    line: `${departments.length} departments, from the Clerk to Public Works, ready to help.`,
     image: heroImages.downtown,
     alt: "Storefronts along a tree-lined downtown street",
     icon: Building2,
@@ -47,7 +50,7 @@ export function VillageExplore() {
             return (
               <li key={tile.title}>
                 <a
-                  href="#"
+                  href={tile.href}
                   className={cn(
                     focusRing,
                     "group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[2rem] text-white shadow-[0_24px_50px_-26px_rgba(29,92,74,0.6)] sm:aspect-[5/6]"

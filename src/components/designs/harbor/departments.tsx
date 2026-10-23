@@ -1,6 +1,8 @@
 import { ArrowRight, Building2 } from "lucide-react"
 
-import { departments } from "@/content/home"
+import { departments, pageHref } from "@/content/home"
+
+const departmentsHref = pageHref("harbor", "departments")
 
 export function Departments() {
   return (
@@ -25,7 +27,7 @@ export function Departments() {
               Find the office, staff and forms you need.
             </p>
             <a
-              href="#"
+              href={departmentsHref}
               className="mt-3 inline-flex items-center gap-1 rounded text-sm font-medium text-(--navy) underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none"
             >
               Staff directory
@@ -37,7 +39,7 @@ export function Departments() {
             {departments.map((department) => (
               <li key={department}>
                 <a
-                  href="#"
+                  href={departmentsHref}
                   className="inline-flex h-10 items-center rounded-full border border-slate-300 bg-white px-4 text-sm font-medium text-slate-800 shadow-sm transition-colors hover:border-(--navy) hover:bg-(--navy) hover:text-white focus-visible:border-(--navy) focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
                   {department}
