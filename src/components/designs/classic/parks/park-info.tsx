@@ -21,7 +21,7 @@ import { eventsId, rulesId } from "./utils"
 export function ParkEvents() {
   const titleId = `${eventsId}-title`
   return (
-    <section id={eventsId} aria-labelledby={titleId} className="scroll-mt-32">
+    <section id={eventsId} aria-labelledby={titleId} className="scroll-mt-38">
       <SectionHeading
         id={titleId}
         aside={countLabel(parkEvents.length, "event", "events")}
@@ -66,7 +66,7 @@ export function ParkEvents() {
 export function ParkRules() {
   const titleId = `${rulesId}-title`
   return (
-    <section id={rulesId} aria-labelledby={titleId} className="scroll-mt-32">
+    <section id={rulesId} aria-labelledby={titleId} className="scroll-mt-38">
       <SectionHeading id={titleId}>Park rules</SectionHeading>
       <ul className="mt-6 divide-y divide-(--rule) overflow-hidden rounded-md border border-(--rule) bg-white">
         {parkRules.general.map((rule) => (

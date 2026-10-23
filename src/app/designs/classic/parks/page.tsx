@@ -32,7 +32,7 @@ export default function ClassicParksPage() {
           {/* Desktop sidebar. Below lg the jump list and City Hall appear inline in the main column. */}
           <aside
             aria-label="Page navigation, Oval Beach and City Hall"
-            className="hidden space-y-6 lg:sticky lg:top-32 lg:block lg:max-h-[calc(100dvh-9.5rem)] lg:[scrollbar-width:thin] lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain"
+            className="hidden space-y-6 lg:sticky lg:top-38 lg:block lg:max-h-[calc(100dvh-11rem)] lg:[scrollbar-width:thin] lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain"
           >
             <ParksJumpNav />
             <OvalBeachTodayWidget id="classic-parks-beach-today" />

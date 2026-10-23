@@ -23,7 +23,7 @@ export function BoardPanel({ board }: { board: Board }) {
     <section
       id={id}
       aria-labelledby={titleId}
-      className="scroll-mt-32 overflow-hidden rounded-md border border-(--rule) bg-white"
+      className="scroll-mt-38 overflow-hidden rounded-md border border-(--rule) bg-white"
     >
       <div className="flex items-center gap-3 border-b border-(--rule) bg-(--band) px-5 py-3">
         <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-(--rule) bg-white text-(--blue-text)">

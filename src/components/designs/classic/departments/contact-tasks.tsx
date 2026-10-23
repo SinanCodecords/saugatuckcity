@@ -8,7 +8,7 @@ import { tasksId } from "./utils"
 /** "Who do I contact?": common tasks, each jumping to the department that handles it. */
 export function ContactTasks() {
   return (
-    <div id={tasksId} className="scroll-mt-32">
+    <div id={tasksId} className="scroll-mt-38">
       <Widget
         id={`${tasksId}-title`}
         title="Who do I contact?"

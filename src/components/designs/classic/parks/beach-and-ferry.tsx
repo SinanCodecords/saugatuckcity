@@ -103,7 +103,7 @@ export function ChainFerryPanel() {
 /** Three car-free routes to Oval Beach, side by side on wider screens. */
 export function GettingToTheBeach() {
   return (
-    <div id={gettingThereId} className="scroll-mt-32">
+    <div id={gettingThereId} className="scroll-mt-38">
       <Widget
         id={`${gettingThereId}-title`}
         title={gettingToTheBeach.title}

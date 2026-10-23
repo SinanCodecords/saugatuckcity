@@ -23,7 +23,7 @@ export default function ClassicBoardsPage() {
           {/* Desktop sidebar. Below lg the same pieces appear inline in the main column. */}
           <aside
             aria-label="Page navigation, meeting access and City Hall"
-            className="hidden space-y-6 lg:sticky lg:top-32 lg:block lg:max-h-[calc(100dvh-9.5rem)] lg:[scrollbar-width:thin] lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain"
+            className="hidden space-y-6 lg:sticky lg:top-38 lg:block lg:max-h-[calc(100dvh-11rem)] lg:[scrollbar-width:thin] lg:overflow-x-hidden lg:overflow-y-auto lg:overscroll-contain"
           >
             <BoardsJumpNav />
             <JoinMeetingWidget id="classic-boards-join" />

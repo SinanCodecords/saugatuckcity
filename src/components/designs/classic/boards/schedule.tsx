@@ -11,7 +11,7 @@ const headClass = `${cellClass} text-[11px] font-semibold tracking-[0.2em] text-
 /** Every board with a regular meeting time, as one compact table. */
 export function MeetingSchedule() {
   return (
-    <section id={scheduleId} aria-labelledby={titleId} className="scroll-mt-32">
+    <section id={scheduleId} aria-labelledby={titleId} className="scroll-mt-38">
       <SectionHeading
         id={titleId}
         aside={countLabel(scheduledBoards.length, "board", "boards")}

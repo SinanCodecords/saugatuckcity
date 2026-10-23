@@ -14,7 +14,7 @@ import {
 function PastCommittee({ board }: { board: Board }) {
   const Icon = boardIcons[board.icon] ?? fallbackBoardIcon
   return (
-    <li id={board.id} className="flex scroll-mt-32 gap-3.5 px-5 py-4">
+    <li id={board.id} className="flex scroll-mt-38 gap-3.5 px-5 py-4">
       <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-(--rule) bg-(--band) text-(--muted)">
         <Icon aria-hidden="true" className="size-4" />
       </span>
@@ -51,7 +51,7 @@ export function BoardGroups() {
             key={group.id}
             id={isPast ? pastSectionId : undefined}
             aria-labelledby={groupHeadingId(group.id)}
-            className={isPast ? "scroll-mt-32" : undefined}
+            className={isPast ? "scroll-mt-38" : undefined}
           >
             <SectionHeading
               id={groupHeadingId(group.id)}

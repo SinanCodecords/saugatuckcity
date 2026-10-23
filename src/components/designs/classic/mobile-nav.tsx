@@ -20,11 +20,11 @@ export function MobileNav({ current }: { current: SitePage }) {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
-        className="inline-flex h-10 items-center gap-2 rounded-md border border-(--rule) bg-white px-3 text-sm font-semibold tracking-[0.18em] text-(--nav) uppercase transition-colors hover:border-(--blue) hover:text-(--blue-text) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none lg:hidden"
+        className="inline-flex h-10 shrink-0 items-center gap-2 rounded-md border border-(--rule) bg-white px-2.5 text-sm font-semibold tracking-[0.18em] text-(--nav) uppercase transition-colors hover:border-(--blue) hover:text-(--blue-text) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:outline-none min-[360px]:px-3 xl:hidden"
         aria-label="Open main menu"
       >
         <Menu className="size-5" aria-hidden="true" />
-        Menu
+        <span className="hidden min-[360px]:inline">Menu</span>
       </SheetTrigger>
       <SheetContent
         side="right"

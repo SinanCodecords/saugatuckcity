@@ -38,7 +38,7 @@ function ParkCard({ park }: { park: Park }) {
     <section
       id={park.id}
       aria-labelledby={titleId}
-      className="flex h-full scroll-mt-32 flex-col overflow-hidden rounded-md border border-(--rule) bg-white"
+      className="flex h-full scroll-mt-38 flex-col overflow-hidden rounded-md border border-(--rule) bg-white"
     >
       <div className="flex items-center gap-3 border-b border-(--rule) bg-(--band) px-4 py-2.5">
         <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-(--rule) bg-white text-(--blue-text)">
@@ -134,7 +134,7 @@ export function ParkAreas() {
             key={area.id}
             id={areaId(area.id)}
             aria-labelledby={headingId}
-            className="scroll-mt-32"
+            className="scroll-mt-38"
           >
             <SectionHeading
               id={headingId}

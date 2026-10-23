@@ -37,7 +37,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-(--rule) bg-white">
       <div className="mx-auto flex max-w-6xl flex-col items-center px-4 py-12 text-center sm:px-6 lg:px-8">
-        <ClassicLogo size="sm" />
+        <ClassicLogo />
 
         {/* Tablets get an even four-by-two grid instead of a six-and-two wrap */}
         <nav aria-label="Footer" className="mt-6 w-full">

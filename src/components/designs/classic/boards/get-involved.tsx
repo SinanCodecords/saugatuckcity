@@ -14,7 +14,7 @@ export function GetInvolved() {
     <section
       id={getInvolvedId}
       aria-labelledby={titleId}
-      className="scroll-mt-32 rounded-md border border-l-4 border-(--rule) border-l-(--blue) bg-(--blue-pale) px-5 py-6 sm:px-7"
+      className="scroll-mt-38 rounded-md border border-l-4 border-(--rule) border-l-(--blue) bg-(--blue-pale) px-5 py-6 sm:px-7"
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
         <div className="max-w-xl">
