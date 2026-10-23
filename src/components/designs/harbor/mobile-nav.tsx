@@ -12,9 +12,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { siteConfig } from "@/config/site"
-import { mainNav } from "@/content/home"
+import { mainNav, navHref, type SitePage } from "@/content/home"
 
-export function MobileNav() {
+export function MobileNav({ current }: { current: SitePage }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -68,9 +68,10 @@ export function MobileNav() {
             {mainNav.map((item) => (
               <li key={item.label}>
                 <a
-                  href={item.href === "/" ? "#" : item.href}
+                  href={navHref("harbor", item)}
+                  aria-current={item.page === current ? "page" : undefined}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between px-5 py-3.5 text-base font-medium text-slate-900 transition-colors hover:bg-slate-50 hover:text-(--navy) focus-visible:bg-slate-50 focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none focus-visible:ring-inset"
+                  className="flex items-center justify-between px-5 py-3.5 text-base font-medium text-slate-900 transition-colors hover:bg-slate-50 hover:text-(--navy) focus-visible:bg-slate-50 focus-visible:ring-2 focus-visible:ring-(--navy) focus-visible:outline-none focus-visible:ring-inset aria-[current=page]:font-semibold aria-[current=page]:text-(--navy)"
                 >
                   {item.label}
                   <ChevronRight

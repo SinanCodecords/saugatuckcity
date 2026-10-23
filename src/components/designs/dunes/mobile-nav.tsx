@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
-import { mainNav } from "@/content/home"
+import { mainNav, navHref, type SitePage } from "@/content/home"
 import {
   Sheet,
   SheetClose,
@@ -15,7 +15,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-export function DunesMobileNav() {
+export function DunesMobileNav({ current }: { current: SitePage }) {
   const [open, setOpen] = React.useState(false)
 
   return (
@@ -52,8 +52,8 @@ export function DunesMobileNav() {
             {mainNav.map((item, index) => (
               <li key={item.label}>
                 <Link
-                  href={item.href}
-                  aria-current={index === 0 ? "page" : undefined}
+                  href={navHref("dunes", item)}
+                  aria-current={item.page === current ? "page" : undefined}
                   onClick={() => setOpen(false)}
                   className="flex items-baseline gap-4 rounded-md px-3 py-3 font-(family-name:--font-dunes-serif) text-xl text-(--dn-ink) transition-colors hover:bg-(--dn-bg-deep) focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-(--dn-teal) aria-[current=page]:text-(--dn-teal)"
                 >

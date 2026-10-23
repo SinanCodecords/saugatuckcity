@@ -7,7 +7,11 @@ import { cn } from "@/lib/utils"
 
 import { focusRing, heading } from "./shared"
 
-type NavItem = { readonly label: string; readonly href: string }
+type NavItem = {
+  readonly label: string
+  readonly href: string
+  readonly current?: boolean
+}
 
 export function MobileNav({ items }: { items: readonly NavItem[] }) {
   const [open, setOpen] = React.useState(false)
@@ -53,11 +57,12 @@ export function MobileNav({ items }: { items: readonly NavItem[] }) {
               <li key={item.label}>
                 <a
                   href={item.href}
+                  aria-current={item.current ? "page" : undefined}
                   onClick={() => setOpen(false)}
                   className={cn(
                     heading,
                     focusRing,
-                    "flex items-center rounded-2xl px-4 py-3 text-base font-bold text-(--v-text) transition-colors hover:bg-(--v-mint) hover:text-(--v-primary)"
+                    "flex items-center rounded-2xl px-4 py-3 text-base font-bold text-(--v-text) transition-colors hover:bg-(--v-mint) hover:text-(--v-primary) aria-[current=page]:bg-(--v-mint) aria-[current=page]:text-(--v-primary)"
                   )}
                 >
                   {item.label}

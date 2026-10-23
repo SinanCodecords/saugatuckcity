@@ -1,7 +1,7 @@
 import { Clock, Globe, Info, Phone, Search } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
-import { alert, mainNav } from "@/content/home"
+import { alert, mainNav, navHref, type SitePage } from "@/content/home"
 
 import { ClassicLogo } from "./logo"
 import { MobileNav } from "./mobile-nav"
@@ -9,7 +9,7 @@ import { MobileNav } from "./mobile-nav"
 const stripLink =
   "inline-flex items-center gap-1.5 rounded px-1 py-0.5 text-(--body) hover:text-(--blue-text) hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--blue)"
 
-export function SiteHeader() {
+export function SiteHeader({ current }: { current: SitePage }) {
   return (
     <>
       <header className="relative z-30 bg-white">
@@ -81,8 +81,8 @@ export function SiteHeader() {
               {mainNav.map((item) => (
                 <li key={item.label}>
                   <a
-                    href={item.href === "/" ? "#" : item.href}
-                    aria-current={item.label === "Home" ? "page" : undefined}
+                    href={navHref("classic", item)}
+                    aria-current={item.page === current ? "page" : undefined}
                     className="relative flex h-14 items-center px-3.5 text-sm font-semibold tracking-[0.18em] whitespace-nowrap text-(--nav) uppercase transition-colors hover:text-(--blue-text) focus-visible:text-(--blue-text) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none focus-visible:ring-inset aria-[current=page]:text-(--blue-text) aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3.5 aria-[current=page]:after:bottom-0 aria-[current=page]:after:h-0.5 aria-[current=page]:after:bg-(--blue) xl:px-5"
                   >
                     {item.label}
@@ -92,7 +92,7 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <MobileNav />
+          <MobileNav current={current} />
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
-import { departments, mainNav, news } from "@/content/home"
+import { departments, mainNav, navHref, news } from "@/content/home"
 import { cn } from "@/lib/utils"
 
 import { Seal } from "./header"
@@ -103,7 +103,7 @@ export function VillageFooter() {
                 .filter((item) => item.label !== "Home")
                 .map((item) => (
                   <li key={item.label}>
-                    <a href={item.href} className={footerLink}>
+                    <a href={navHref("village", item)} className={footerLink}>
                       {item.label}
                     </a>
                   </li>

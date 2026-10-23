@@ -1,14 +1,20 @@
 import { Clock, Globe, MapPin, Phone, Search } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
-import { alert, mainNav } from "@/content/home"
+import {
+  alert,
+  mainNav,
+  navHref,
+  pageHref,
+  type SitePage,
+} from "@/content/home"
 
 import { MobileNav } from "./mobile-nav"
 
 const utilityLink =
   "inline-flex items-center gap-1.5 rounded px-1 py-0.5 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--gold)"
 
-export function SiteHeader() {
+export function SiteHeader({ current }: { current: SitePage }) {
   return (
     <header className="relative z-40 text-white">
       {/* Utility bar */}
@@ -51,7 +57,7 @@ export function SiteHeader() {
       <div className="bg-(--navy) shadow-[inset_0_-2px_0_0_var(--gold)]">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8 xl:py-0">
           <a
-            href="#"
+            href={pageHref("harbor", "home")}
             className="group flex items-center gap-3 rounded-md py-2 focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:ring-offset-2 focus-visible:ring-offset-(--navy) focus-visible:outline-none"
             aria-label="City of Saugatuck, Michigan — home"
           >
@@ -76,8 +82,8 @@ export function SiteHeader() {
               {mainNav.map((item) => (
                 <li key={item.label}>
                   <a
-                    href={item.href === "/" ? "#" : item.href}
-                    aria-current={item.label === "Home" ? "page" : undefined}
+                    href={navHref("harbor", item)}
+                    aria-current={item.page === current ? "page" : undefined}
                     className="relative flex h-16 items-center px-3 text-sm font-medium whitespace-nowrap text-slate-100 transition-colors hover:bg-white/8 hover:text-white focus-visible:bg-white/8 focus-visible:text-white focus-visible:ring-2 focus-visible:ring-(--gold) focus-visible:outline-none focus-visible:ring-inset aria-[current=page]:text-white aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3 aria-[current=page]:after:bottom-0 aria-[current=page]:after:h-0.5 aria-[current=page]:after:bg-(--gold)"
                   >
                     {item.label}
@@ -87,7 +93,7 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <MobileNav />
+          <MobileNav current={current} />
         </div>
       </div>
 

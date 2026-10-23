@@ -1,7 +1,7 @@
 import { Phone } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
-import { mainNav } from "@/content/home"
+import { mainNav, navHref, pageHref, type SitePage } from "@/content/home"
 import { cn } from "@/lib/utils"
 
 import { MobileNav } from "./mobile-nav"
@@ -24,16 +24,21 @@ export function Seal({ className }: { className?: string }) {
   )
 }
 
-/** The seal links home, so the desktop bar skips the redundant "Home" item. */
-const desktopNav = mainNav.filter((item) => item.label !== "Home")
+export function VillageHeader({ current }: { current: SitePage }) {
+  const nav = mainNav.map((item) => ({
+    label: item.label,
+    href: navHref("village", item),
+    current: item.page === current,
+  }))
+  // The seal links home, so the desktop bar skips the redundant "Home" item.
+  const desktopNav = nav.filter((item) => item.label !== "Home")
 
-export function VillageHeader() {
   return (
     <header className="sticky top-10 z-50 pt-4">
       <Container className="max-w-7xl">
         <div className="relative flex h-18 items-center justify-between gap-4 rounded-full border border-(--v-line) bg-white/95 pr-3 pl-4 shadow-[0_12px_32px_-18px_rgba(29,92,74,0.45)] backdrop-blur supports-backdrop-filter:bg-white/85 sm:pr-4 sm:pl-5">
           <a
-            href="#"
+            href={pageHref("village", "home")}
             className={cn(
               focusRing,
               "flex shrink-0 items-center gap-3 rounded-full py-1 pr-2"
@@ -61,10 +66,11 @@ export function VillageHeader() {
                 <li key={item.label}>
                   <a
                     href={item.href}
+                    aria-current={item.current ? "page" : undefined}
                     className={cn(
                       heading,
                       focusRing,
-                      "inline-flex h-10 items-center rounded-full px-2.5 text-sm font-bold whitespace-nowrap text-(--v-text) transition-colors hover:bg-(--v-mint) hover:text-(--v-primary)"
+                      "inline-flex h-10 items-center rounded-full px-2.5 text-sm font-bold whitespace-nowrap text-(--v-text) transition-colors hover:bg-(--v-mint) hover:text-(--v-primary) aria-[current=page]:bg-(--v-mint) aria-[current=page]:text-(--v-primary)"
                     )}
                   >
                     {item.label}
@@ -79,7 +85,7 @@ export function VillageHeader() {
               <Phone className="size-4" aria-hidden="true" />
               Contact City Hall
             </PillLink>
-            <MobileNav items={mainNav} />
+            <MobileNav items={nav} />
           </div>
         </div>
       </Container>

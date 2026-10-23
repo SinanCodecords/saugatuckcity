@@ -4,16 +4,37 @@
  * replaced by real content once a design is chosen.
  */
 
-export const mainNav = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "#" },
+/** Pages built so far in the shortlisted design variants. */
+export type SitePage = "home" | "about"
+
+type NavItem = {
+  readonly label: string
+  readonly href: string
+  readonly page?: SitePage
+}
+
+export const mainNav: readonly NavItem[] = [
+  { label: "Home", href: "/", page: "home" },
+  { label: "About", href: "#", page: "about" },
   { label: "Departments", href: "#" },
   { label: "Boards & Committees", href: "#" },
   { label: "Parks & Recreation", href: "#" },
   { label: "Forms", href: "#" },
   { label: "Links", href: "#" },
   { label: "Contact", href: "#" },
-] as const
+]
+
+const pagePaths: Record<SitePage, string> = { home: "", about: "/about" }
+
+/** URL of a built page inside one design variant, e.g. /designs/dunes/about. */
+export function pageHref(design: string, page: SitePage) {
+  return `/designs/${design}${pagePaths[page]}`
+}
+
+/** Nav items with a built page link inside the variant; the rest stay placeholders. */
+export function navHref(design: string, item: NavItem) {
+  return item.page ? pageHref(design, item.page) : item.href
+}
 
 export const quickLinks = [
   {

@@ -12,9 +12,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { siteConfig } from "@/config/site"
-import { mainNav } from "@/content/home"
+import { mainNav, navHref, type SitePage } from "@/content/home"
 
-export function MobileNav() {
+export function MobileNav({ current }: { current: SitePage }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -66,9 +66,9 @@ export function MobileNav() {
             {mainNav.map((item) => (
               <li key={item.label}>
                 <a
-                  href={item.href === "/" ? "#" : item.href}
+                  href={navHref("classic", item)}
                   onClick={() => setOpen(false)}
-                  aria-current={item.label === "Home" ? "page" : undefined}
+                  aria-current={item.page === current ? "page" : undefined}
                   className="flex items-center justify-between px-5 py-3.5 text-sm font-semibold tracking-[0.18em] text-(--nav) uppercase transition-colors hover:bg-(--band) hover:text-(--blue-text) focus-visible:bg-(--band) focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:outline-none focus-visible:ring-inset aria-[current=page]:text-(--blue-text)"
                 >
                   {item.label}

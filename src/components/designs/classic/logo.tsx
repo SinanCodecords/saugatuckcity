@@ -1,3 +1,4 @@
+import { pageHref } from "@/content/home"
 import { cn } from "@/lib/utils"
 
 type LogoProps = {
@@ -15,7 +16,7 @@ export function ClassicLogo({ size = "lg", className }: LogoProps) {
 
   return (
     <a
-      href="#"
+      href={pageHref("classic", "home")}
       aria-label="City of Saugatuck, Michigan — home"
       className={cn(
         "group inline-flex flex-col items-center rounded-md text-center focus-visible:ring-2 focus-visible:ring-(--blue) focus-visible:ring-offset-4 focus-visible:ring-offset-white focus-visible:outline-none",

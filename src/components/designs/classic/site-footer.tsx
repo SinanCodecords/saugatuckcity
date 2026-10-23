@@ -1,5 +1,5 @@
 import { siteConfig } from "@/config/site"
-import { mainNav } from "@/content/home"
+import { mainNav, navHref } from "@/content/home"
 
 import { ClassicLogo } from "./logo"
 
@@ -44,7 +44,7 @@ export function SiteFooter() {
             {mainNav.map((item) => (
               <li key={item.label}>
                 <a
-                  href={item.href === "/" ? "#" : item.href}
+                  href={navHref("classic", item)}
                   className={`${footerLink} text-[11px] font-semibold tracking-[0.18em] uppercase`}
                 >
                   {item.label}

@@ -1,22 +1,28 @@
 import Link from "next/link"
 import { Search } from "lucide-react"
 
-import { alert, mainNav } from "@/content/home"
+import {
+  alert,
+  mainNav,
+  navHref,
+  pageHref,
+  type SitePage,
+} from "@/content/home"
 
 import { DunesMobileNav } from "./mobile-nav"
 
-export function DunesHeader() {
+export function DunesHeader({ current }: { current: SitePage }) {
   return (
     <header className="sticky top-10 z-40 border-b border-(--dn-rule) bg-(--dn-bg)/95 backdrop-blur supports-backdrop-filter:bg-(--dn-bg)/85">
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
         {/* Wordmark row */}
         <div className="relative flex h-16 items-center justify-between lg:h-20 lg:justify-center">
           <div className="lg:hidden">
-            <DunesMobileNav />
+            <DunesMobileNav current={current} />
           </div>
 
           <Link
-            href="#"
+            href={pageHref("dunes", "home")}
             className="group inline-flex flex-col items-center rounded-sm text-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal)"
           >
             <span className="font-(family-name:--font-dunes-serif) text-[13px] font-semibold tracking-[0.22em] uppercase sm:text-sm lg:text-[15px]">
@@ -50,11 +56,11 @@ export function DunesHeader() {
           className="hidden items-center justify-center border-t border-(--dn-rule) lg:flex"
         >
           <ul className="flex items-center gap-1">
-            {mainNav.map((item, index) => (
+            {mainNav.map((item) => (
               <li key={item.label}>
                 <Link
-                  href={item.href}
-                  aria-current={index === 0 ? "page" : undefined}
+                  href={navHref("dunes", item)}
+                  aria-current={item.page === current ? "page" : undefined}
                   className="group relative inline-flex h-11 items-center px-3.5 text-[13px] font-medium tracking-[0.06em] text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-(--dn-teal) aria-[current=page]:text-(--dn-teal)"
                 >
                   {item.label}
