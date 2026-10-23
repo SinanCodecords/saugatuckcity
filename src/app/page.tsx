@@ -15,9 +15,9 @@ export default function Home() {
         Homepage design options
       </h1>
       <p className="mt-2 text-muted-foreground">
-        Five directions for the new homepage, each a working page with the same
-        sample content. Open one, then use the bar at the top to switch between
-        them.
+        {designs.length} directions for the new homepage, each a working page
+        with the same sample content. Open one, then use the bar at the top to
+        switch between them.
       </p>
       <ol className="mt-10 divide-y divide-border rounded-xl border border-border">
         {designs.map((design, index) => (

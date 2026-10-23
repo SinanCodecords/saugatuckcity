@@ -10,9 +10,9 @@ export default function DesignsIndexPage() {
         Homepage design options
       </h1>
       <p className="mt-2 text-muted-foreground">
-        Five directions for the City of Saugatuck homepage. Each one is a
-        working page with the same sample content so the layouts can be compared
-        directly. Open one, then use the bar at the top to switch.
+        {designs.length} directions for the City of Saugatuck homepage. Each one
+        is a working page with the same sample content so the layouts can be
+        compared directly. Open one, then use the bar at the top to switch.
       </p>
       <ol className="mt-10 divide-y divide-border rounded-xl border border-border">
         {designs.map((design, index) => (

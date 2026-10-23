@@ -24,6 +24,23 @@ export const designs = [
     name: "Village",
     tagline: "Friendly community feel. Soft colors, rounded cards.",
   },
+  {
+    slug: "civic",
+    name: "Civic",
+    tagline:
+      "The standard US city-site pattern. I Want To… menu, News Flash, Calendar.",
+  },
+  {
+    slug: "federal",
+    name: "Federal",
+    tagline: "US Web Design System style. Plain, official, very readable.",
+  },
+  {
+    slug: "classic",
+    name: "Classic",
+    tagline:
+      "The current site's layout, modernized. Centered logo and nav, familiar.",
+  },
 ] as const
 
 export type DesignSlug = (typeof designs)[number]["slug"]
