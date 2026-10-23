@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# City of Saugatuck — Website
 
-## Getting Started
+Rebuild of [saugatuckcity.com](https://www.saugatuckcity.com).
 
-First, run the development server:
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router, Turbopack, Cache Components) + React 19
+- TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [shadcn/ui](https://ui.shadcn.com) (Radix, Nova preset) + lucide-react icons
+- react-hook-form + zod for forms and validation
+- next-themes (light/dark), sonner (toasts), date-fns
+- ESLint + Prettier (with Tailwind class sorting)
+- pnpm
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+cp .env.example .env.local
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script           | What it does                          |
+| ---------------- | ------------------------------------- |
+| `pnpm dev`       | Start the dev server                  |
+| `pnpm build`     | Production build                      |
+| `pnpm start`     | Serve the production build            |
+| `pnpm lint`      | Run ESLint (`lint:fix` to auto-fix)   |
+| `pnpm typecheck` | Generate route types and run `tsc`    |
+| `pnpm format`    | Format with Prettier (`format:check`) |
 
-## Learn More
+## Adding UI components
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dlx shadcn@latest add <component>
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+  app/                 routes, layouts, globals.css (theme tokens)
+  components/ui/       shadcn/ui components
+  components/providers theme, tooltip and toast providers
+  config/site.ts       site name, contact info, metadata defaults
+  hooks/               shared React hooks
+  lib/utils.ts         cn() helper
+```
