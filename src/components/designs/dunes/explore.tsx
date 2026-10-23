@@ -2,23 +2,26 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
-import { heroImages } from "@/content/home"
+import { heroImages, pageHref } from "@/content/home"
 
 const places = [
   {
     title: "Oval Beach",
+    href: `${pageHref("dunes", "parks")}#beach`,
     note: "Ranked among the best freshwater beaches in the country.",
     image: heroImages.lake,
     alt: "Sunlit shoreline of Lake Michigan at Oval Beach with calm water and sand",
   },
   {
     title: "Downtown",
+    href: "#",
     note: "Galleries, shops and restaurants along Butler Street.",
     image: heroImages.downtown,
     alt: "Tree-lined downtown street with small storefronts in late afternoon light",
   },
   {
     title: "Harbor",
+    href: "#",
     note: "The Kalamazoo River, the chain ferry and the marina.",
     image: heroImages.marina,
     alt: "Sailboats docked in the Saugatuck marina on the Kalamazoo River",
@@ -45,7 +48,7 @@ export function DunesExplore() {
             </h2>
           </div>
           <Link
-            href="#"
+            href={pageHref("dunes", "parks")}
             className="group inline-flex items-center gap-1.5 self-start rounded-sm text-sm font-medium text-(--dn-ink) transition-colors hover:text-(--dn-teal) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal) sm:self-auto"
           >
             Parks &amp; Recreation
@@ -61,7 +64,7 @@ export function DunesExplore() {
           {places.map((place, index) => (
             <li key={place.title}>
               <Link
-                href="#"
+                href={place.href}
                 className="group block rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--dn-teal)"
               >
                 <figure>

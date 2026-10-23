@@ -8,7 +8,7 @@ import {
   Tent,
 } from "lucide-react"
 
-import { heroImages } from "@/content/home"
+import { heroImages, pageHref } from "@/content/home"
 import { cn } from "@/lib/utils"
 
 import { Container, focusRing, heading } from "./shared"
@@ -22,7 +22,12 @@ const tasks = [
     icon: MessageSquareWarning,
     tint: "bg-(--v-rose)",
   },
-  { label: "Reserve a park pavilion", icon: Tent, tint: "bg-(--v-lavender)" },
+  {
+    label: "Reserve a park pavilion",
+    icon: Tent,
+    tint: "bg-(--v-lavender)",
+    href: `${pageHref("village", "parks")}#village-parks-reserve`,
+  },
 ]
 
 export function VillageHero() {
@@ -76,7 +81,7 @@ export function VillageHero() {
                   return (
                     <li key={task.label}>
                       <a
-                        href="#"
+                        href={"href" in task ? task.href : "#"}
                         className={cn(
                           focusRing,
                           "group flex items-center gap-3 rounded-2xl px-3 py-2.5 text-(--v-text) transition-colors hover:bg-(--v-mint)"

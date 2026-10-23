@@ -4,7 +4,7 @@ import { getInvolved, publicMeetings } from "@/content/boards"
 
 import { telHref, textLink } from "../departments/shared"
 
-function PhoneLink({ phone, label }: { phone: string; label: string }) {
+export function PhoneLink({ phone, label }: { phone: string; label: string }) {
   return (
     <a
       href={telHref(phone)}

@@ -6,7 +6,7 @@ import type { Board } from "@/content/boards"
 import { departmentAnchor, textLink } from "../departments/shared"
 import { boardIcons } from "./icons"
 
-const targetHighlight =
+export const targetHighlight =
   "target:border-(--navy) target:ring-2 target:ring-(--gold)"
 
 function websiteLabel(url: string) {
@@ -28,7 +28,7 @@ function WebsiteLink({ url }: { url: string }) {
   )
 }
 
-function DetailRow({
+export function DetailRow({
   icon: Icon,
   label,
   value,

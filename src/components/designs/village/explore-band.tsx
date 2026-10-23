@@ -9,7 +9,7 @@ import { Container, SectionHeading, focusRing, heading } from "./shared"
 const tiles = [
   {
     title: "Parks & Beaches",
-    href: "#",
+    href: pageHref("village", "parks"),
     line: "Oval Beach, Mount Baldhead, the chain ferry and a dozen pocket parks.",
     image: heroImages.dunes,
     alt: "Grass-covered sand dunes above Lake Michigan",
@@ -17,7 +17,7 @@ const tiles = [
   },
   {
     title: "Boards & Committees",
-    href: "#",
+    href: pageHref("village", "boards"),
     line: "Meet the volunteers who shape planning, the harbor and downtown.",
     image: heroImages.harbor,
     alt: "Boats on the calm water of Saugatuck harbor",
